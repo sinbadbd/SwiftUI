@@ -9,21 +9,27 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @ObjectBinding var store : UnsplashStore
+    
     var body: some View {
         Group{
-            NavigationView{
-                List (0..<10){ item in
-                    ListRow(model: <#Model#>)
+            if store.model.isEmpty {
+                Loader()
+            } else {
+                NavigationView{
+                    List (store.model, rowContent: ImageRow.init).navigationBarTitle("Image ")
                 }
             }
-        }
+        }.onAppear(perform: store.fetch)
+        
     }
 }
 
 #if DEBUG
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(store: UnsplashStore())
     }
 }
 #endif
