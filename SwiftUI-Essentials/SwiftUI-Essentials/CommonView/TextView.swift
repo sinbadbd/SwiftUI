@@ -11,6 +11,12 @@ import SwiftUI
 struct TextView: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello World!"/*@END_MENU_TOKEN@*/)
+            .font(.largeTitle)
+            .fontWeight(.semibold)
+            .foregroundColor(.red)
+            .multilineTextAlignment(.center)
+            .padding(.all)
+            .background(Color.gray)
     }
 }
 
