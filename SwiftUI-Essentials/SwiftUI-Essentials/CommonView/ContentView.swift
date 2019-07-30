@@ -21,13 +21,14 @@ struct ContentView: View {
             TextView()
             TextFieldView(textBinding: $commentTextField, pleaceHolder: "text....")
             
+            // BINDING
             Button(action: {
                 print("Button")
                 self.commentTextField = "get something"
             }) {
                 Text("I'm a button")
             }
-            
+            // ALERT
             Button(action: {
                 self.showAlert = true
             }) {
@@ -36,7 +37,7 @@ struct ContentView: View {
                 Alert(title: Text("Title"), message: Text("This is sweet alert message"))
             }
             
-            
+            // MODAL
             Button(action: {
                 self.showModal = true
             }) {
