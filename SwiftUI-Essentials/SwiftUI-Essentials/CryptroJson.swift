@@ -6,6 +6,8 @@
 //  Copyright © 2019 devsloop. All rights reserved.
 //
 
+//https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC&tsyms=USD,EUR?api_key=6dde5c8daa2754efbbe226036c6cd30becdb3659631471b8cdf5734d1bb564a0
+
 import SwiftUI
 
 struct Coins {
@@ -24,19 +26,40 @@ struct CryptroJson: View {
         Coins(id: "HOK", name: "BSH", currency:"2200")
     ]
     
+    @State var manage = NetworkManager()
     
     var body: some View {
-
+        
         NavigationView{
-
-            List(coin, id: \.self.id) {coins in
+            
+            VStack{
                 
-                HStack {
-                    Text("\(coins.name) (\(coins.id))")
-                    Spacer()
-                    Text(coins.currency)
+//                Button(action: {
+//                    self.manage.getCoins()
+//                }) {
+//                    Text("get all coins")
+//                }
+                if manage.isDataFetch {
+                    
+                    
+
+                    
+                    List(coin, id: \.self.id) {coins in
+                        
+                        HStack {
+                            Text("\(coins.name) (\(coins.id))")
+                            Spacer()
+                          //  Text(self.manage.fetchCoindModel[0].display.btc.usd.change24Hour)
+                              //                      .font(.largeTitle)
+                       //   Text(self.manage.fetchCoindModel[0].display.btc.usd.price)
+                            Text(self.manage.fetchCoindModel[0].results[0].title)
+                        }
+                    }
+                    
+                } else {
+                    Text("Loading...").font(.largeTitle)
                 }
-            }.navigationBarTitle("Cryptro")
+            }
         }
     }
 }

@@ -17,6 +17,8 @@
 		E62665AA22F0182000BF641E /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62665A922F0182000BF641E /* TextFieldView.swift */; };
 		E62665AC22F01B0800BF641E /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62665AB22F01B0800BF641E /* ImageView.swift */; };
 		E62665AE22F0366400BF641E /* CryptroJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62665AD22F0366400BF641E /* CryptroJson.swift */; };
+		E62665B022F03DEC00BF641E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62665AF22F03DEC00BF641E /* NetworkManager.swift */; };
+		E62665B222F040D900BF641E /* CoinsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E62665B122F040D900BF641E /* CoinsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		E62665A922F0182000BF641E /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
 		E62665AB22F01B0800BF641E /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		E62665AD22F0366400BF641E /* CryptroJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptroJson.swift; sourceTree = "<group>"; };
+		E62665AF22F03DEC00BF641E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		E62665B122F040D900BF641E /* CoinsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,8 @@
 				E626659B22F0164F00BF641E /* LaunchScreen.storyboard */,
 				E626659E22F0164F00BF641E /* Info.plist */,
 				E626659822F0164F00BF641E /* Preview Content */,
+				E62665AF22F03DEC00BF641E /* NetworkManager.swift */,
+				E62665B122F040D900BF641E /* CoinsModel.swift */,
 			);
 			path = "SwiftUI-Essentials";
 			sourceTree = "<group>";
@@ -168,8 +174,10 @@
 			files = (
 				E62665AC22F01B0800BF641E /* ImageView.swift in Sources */,
 				E626659122F0164A00BF641E /* AppDelegate.swift in Sources */,
+				E62665B222F040D900BF641E /* CoinsModel.swift in Sources */,
 				E62665AE22F0366400BF641E /* CryptroJson.swift in Sources */,
 				E62665AA22F0182000BF641E /* TextFieldView.swift in Sources */,
+				E62665B022F03DEC00BF641E /* NetworkManager.swift in Sources */,
 				E62665A822F0170500BF641E /* TextView.swift in Sources */,
 				E626659322F0164A00BF641E /* SceneDelegate.swift in Sources */,
 				E626659522F0164A00BF641E /* ContentView.swift in Sources */,
