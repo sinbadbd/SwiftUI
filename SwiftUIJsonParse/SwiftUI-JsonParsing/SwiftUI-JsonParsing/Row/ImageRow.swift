@@ -18,7 +18,7 @@ struct ImageRow: View {
                 .scaledToFill()
                 .clipShape(Circle())
                 .overlay(Circle().stroke(Color.gray, lineWidth: 1))
-                .shadow(radius: 10)
+                .shadow(radius: 5)
             VStack(alignment: .leading){
                 Text(model.name)
                 Text(model.bio).font(.subheadline)

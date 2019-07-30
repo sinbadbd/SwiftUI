@@ -18,7 +18,9 @@ struct ContentView: View {
                 Loader()
             } else {
                 NavigationView{
-                    List (store.model, rowContent: ImageRow.init).navigationBarTitle("Image ")
+                    NavigationLink(destination: PhotoDetails()){
+                        List (store.model, rowContent: ImageRow.init).navigationBarTitle("Image ")
+                    }
                 }
             }
         }.onAppear(perform: store.fetch)

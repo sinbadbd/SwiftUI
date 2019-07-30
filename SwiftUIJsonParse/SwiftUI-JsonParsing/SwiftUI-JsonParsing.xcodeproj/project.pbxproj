@@ -19,6 +19,7 @@
 		E634AE4D22EF0230007B758A /* ListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E634AE4C22EF0230007B758A /* ListRow.swift */; };
 		E634AE4F22EF0839007B758A /* ImageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E634AE4E22EF0839007B758A /* ImageRow.swift */; };
 		E634AE5222EF0FF5007B758A /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E634AE5122EF0FF5007B758A /* Loader.swift */; };
+		E634AE5422EF1659007B758A /* PhotoDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E634AE5322EF1659007B758A /* PhotoDetails.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		E634AE4C22EF0230007B758A /* ListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRow.swift; sourceTree = "<group>"; };
 		E634AE4E22EF0839007B758A /* ImageRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRow.swift; sourceTree = "<group>"; };
 		E634AE5122EF0FF5007B758A /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		E634AE5322EF1659007B758A /* PhotoDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				E634AE3022EEF493007B758A /* AppDelegate.swift */,
 				E634AE3222EEF493007B758A /* SceneDelegate.swift */,
 				E634AE3422EEF493007B758A /* ContentView.swift */,
+				E634AE5322EF1659007B758A /* PhotoDetails.swift */,
 				E634AE4922EEF759007B758A /* UnsplashStore.swift */,
 				E634AE3622EEF499007B758A /* Assets.xcassets */,
 				E634AE3B22EEF499007B758A /* LaunchScreen.storyboard */,
@@ -197,6 +200,7 @@
 				E634AE4D22EF0230007B758A /* ListRow.swift in Sources */,
 				E634AE4A22EEF759007B758A /* UnsplashStore.swift in Sources */,
 				E634AE5222EF0FF5007B758A /* Loader.swift in Sources */,
+				E634AE5422EF1659007B758A /* PhotoDetails.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
