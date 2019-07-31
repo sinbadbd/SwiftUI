@@ -14,7 +14,7 @@ class NetworkManager: BindableObject {
     static let API_KEY = "?api_key=6dde5c8daa2754efbbe226036c6cd30becdb3659631471b8cdf5734d1bb564a0"
    // static let BASE_URL = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC&tsyms=USD,EUR\(API_KEY)"
     
-static let BASE_URL = "http://api.themoviedb.org/3/movie/now_playing?api_key=de05a59a85ef1e7797de8d4a6d343d0e"
+static let BASE_URL = "https://api.themoviedb.org/3/movie/now_playing?api_key=de05a59a85ef1e7797de8d4a6d343d0e"
     
     var willChange = PassthroughSubject<NetworkManager, Never>()
     
