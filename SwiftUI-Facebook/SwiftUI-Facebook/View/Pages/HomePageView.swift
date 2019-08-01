@@ -18,7 +18,7 @@ struct HomePageView: View {
                 ForEach(model.feeds) { feed in
                     FeedView(feed: feed).frame( height: 440, alignment: .top).padding()
                 }.listRowInsets(EdgeInsets())
-            }.navigationBarTitle("Title")
+            }.navigationBarTitle("Facebook")
         }
     }
 }

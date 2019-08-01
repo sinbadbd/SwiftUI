@@ -13,7 +13,7 @@ struct MainTabView: View {
         TabbedView{
             HomePageView()
             .tabItem {
-                    Image(systemName: "2.square.fill")
+                    Image(systemName: "1.square.fill")
                     Text("Home")
              }.tag(0)
             
@@ -25,13 +25,13 @@ struct MainTabView: View {
             
             FriendListView()
             .tabItem {
-                    Image(systemName: "2.square.fill")
+                    Image(systemName: "3.square.fill")
                     Text("Friend List")
             }.tag(2)
             
             NotificationVIew()
             .tabItem {
-                    Image(systemName: "2.square.fill")
+                    Image(systemName: "4.square.fill")
                     Text("Notifications")
             }.tag(3)
              
