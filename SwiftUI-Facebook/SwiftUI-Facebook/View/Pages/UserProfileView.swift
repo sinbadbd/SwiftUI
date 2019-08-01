@@ -22,6 +22,15 @@ struct UserProfileView: View {
                 UserProfilePic()
                     .offset(y: -130)
                     .padding(.bottom, -130)
+                
+                ZStack{
+                    Button(action: {
+                        
+                    }) {
+                       Image(systemName: "camera")
+                    }.offset(x: 50, y: -50).foregroundColor(.black)
+                }
+                
                 Spacer()
             }
             .navigationBarTitle("Profile")
