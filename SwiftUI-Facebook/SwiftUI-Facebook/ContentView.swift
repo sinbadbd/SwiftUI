@@ -9,13 +9,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    var model = HomePageModel()
     var body: some View {
         NavigationView{
-            VStack {
-                StoriesView(stories: HomePageModel().stories).frame( height: 230)
+             
+            List {
+                StoriesView(stories: HomePageModel().stories).frame( height: 235)
                 Spacer()
+                ForEach(model.feeds) { feed in
+                    FeedView(feed: feed).frame( height: 440, alignment: .top).padding()
+                }.listRowInsets(EdgeInsets())
             }
-            .navigationBarTitle("Facebook")
+                //            VStack {
+                //                StoriesView(stories: HomePageModel().stories).frame( height: 235)
+                //                Spacer()
+                //
+                //                FeedView(feed: HomePageModel().feeds[2])
+                //            }
+                .navigationBarTitle("Title")
         }
     }
 }

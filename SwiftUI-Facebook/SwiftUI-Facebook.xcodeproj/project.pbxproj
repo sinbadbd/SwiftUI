@@ -18,6 +18,7 @@
 		E677B67422F2D11E00126EE4 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = E677B67322F2D11E00126EE4 /* Story.swift */; };
 		E677B67622F2D27100126EE4 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E677B67522F2D27100126EE4 /* CardView.swift */; };
 		E677B67822F2D49700126EE4 /* StoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E677B67722F2D49700126EE4 /* StoriesView.swift */; };
+		E677B67A22F2E35400126EE4 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E677B67922F2E35400126EE4 /* FeedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		E677B67322F2D11E00126EE4 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		E677B67522F2D27100126EE4 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		E677B67722F2D49700126EE4 /* StoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesView.swift; sourceTree = "<group>"; };
+		E677B67922F2E35400126EE4 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,12 @@
 		E677B65822F2C25B00126EE4 /* SwiftUI-Facebook */ = {
 			isa = PBXGroup;
 			children = (
+				E677B67922F2E35400126EE4 /* FeedView.swift */,
+				E677B67522F2D27100126EE4 /* CardView.swift */,
+				E677B67722F2D49700126EE4 /* StoriesView.swift */,
+				E677B66F22F2C5CF00126EE4 /* BackgroundView.swift */,
+				E677B66D22F2C27600126EE4 /* ProfileView.swift */,
+				E677B67B22F2E9D000126EE4 /* View */,
 				E677B65922F2C25B00126EE4 /* AppDelegate.swift */,
 				E677B65B22F2C25B00126EE4 /* SceneDelegate.swift */,
 				E677B65D22F2C25B00126EE4 /* ContentView.swift */,
@@ -73,11 +81,7 @@
 				E677B66422F2C26000126EE4 /* LaunchScreen.storyboard */,
 				E677B66722F2C26000126EE4 /* Info.plist */,
 				E677B66122F2C26000126EE4 /* Preview Content */,
-				E677B66D22F2C27600126EE4 /* ProfileView.swift */,
-				E677B66F22F2C5CF00126EE4 /* BackgroundView.swift */,
 				E677B67322F2D11E00126EE4 /* Story.swift */,
-				E677B67522F2D27100126EE4 /* CardView.swift */,
-				E677B67722F2D49700126EE4 /* StoriesView.swift */,
 			);
 			path = "SwiftUI-Facebook";
 			sourceTree = "<group>";
@@ -88,6 +92,29 @@
 				E677B66222F2C26000126EE4 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E677B67B22F2E9D000126EE4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E677B67D22F2EA0D00126EE4 /* Feed */,
+				E677B67C22F2E9FA00126EE4 /* Story */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E677B67C22F2E9FA00126EE4 /* Story */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Story;
+			sourceTree = "<group>";
+		};
+		E677B67D22F2EA0D00126EE4 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Feed;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E677B67822F2D49700126EE4 /* StoriesView.swift in Sources */,
+				E677B67A22F2E35400126EE4 /* FeedView.swift in Sources */,
 				E677B67622F2D27100126EE4 /* CardView.swift in Sources */,
 				E677B67022F2C5CF00126EE4 /* BackgroundView.swift in Sources */,
 				E677B66E22F2C27600126EE4 /* ProfileView.swift in Sources */,
