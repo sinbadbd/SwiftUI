@@ -10,8 +10,9 @@ import SwiftUI
 
 struct CoverPicture: View {
     var body: some View {
-        Image("1")
+        Image("coverphoto")
             .resizable()
+            .scaledToFill()
             .aspectRatio(contentMode: .fit)
             .cornerRadius(10)
     }

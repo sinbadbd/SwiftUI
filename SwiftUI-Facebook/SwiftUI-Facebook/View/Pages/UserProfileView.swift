@@ -10,18 +10,21 @@ import SwiftUI
 
 struct UserProfileView: View {
     var body: some View {
-
-        VStack{
-            CoverPicture()
-                .scaledToFill()
-                .frame(height: 200)
-                .clipped()
-                .padding([.leading, .trailing], 15)
-
-            UserProfilePic()
-                .offset(y: -130)
-                .padding(.bottom, -130)
-            Spacer()
+        
+        NavigationView{
+            VStack{
+                CoverPicture()
+                    .scaledToFill()
+                    .frame(height: 200)
+                    .clipped().cornerRadius(10)
+                    .padding([.leading, .trailing], 15)
+                
+                UserProfilePic()
+                    .offset(y: -130)
+                    .padding(.bottom, -130)
+                Spacer()
+            }
+            .navigationBarTitle("Profile")
         }
     }
 }

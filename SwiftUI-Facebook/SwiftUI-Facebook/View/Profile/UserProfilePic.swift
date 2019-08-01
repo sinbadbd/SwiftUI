@@ -16,7 +16,7 @@ struct UserProfilePic: View {
            .clipShape(Circle())
            .shadow(radius: 10)
            .frame(width: 140, height: 140)
-           .overlay(Circle().stroke(Color.blue, lineWidth: 5)).foregroundColor(.white)
+           .overlay(Circle().stroke(Color.white, lineWidth: 5)).foregroundColor(.white)
     }
 }
 

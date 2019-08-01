@@ -42,8 +42,11 @@ struct FeedView: View {
                // .padding([.leading, .trailing], 10)
             Image(feed.imagename)
                 .resizable()
+                .scaledToFill()
                 .cornerRadius(4)
-                .aspectRatio(contentMode: .fit).clipped().frame(height: 250, alignment: .center)
+                .aspectRatio(contentMode: .fit)
+                .clipped()
+                .frame(height: 250, alignment: .center)
         }
     }
 }
