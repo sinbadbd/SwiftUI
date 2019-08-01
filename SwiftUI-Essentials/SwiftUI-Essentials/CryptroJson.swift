@@ -40,20 +40,18 @@ struct CryptroJson: View {
 //                    Text("get all coins")
 //                }
                 if manage.isDataFetch {
-                    
-                    
+                     
+                    List{
+                         Text(self.manage.fetchCoindModel[0].results[0].originalTitle)
 
-                    
-                    List(coin, id: \.self.id) {coins in
-                        
-                        HStack {
-                            Text("\(coins.name) (\(coins.id))")
-                            Spacer()
-                          //  Text(self.manage.fetchCoindModel[0].display.btc.usd.change24Hour)
-                              //                      .font(.largeTitle)
-                       //   Text(self.manage.fetchCoindModel[0].display.btc.usd.price)
-                            Text(self.manage.fetchCoindModel[0].results[0].title)
-                        }
+//                        HStack {
+//                            //Text("\(coins.name) (\(coins.id))")
+//                         //   Spacer()
+//                          //  Text(self.manage.fetchCoindModel[0].display.btc.usd.change24Hour)
+//                              //                      .font(.largeTitle)
+//                       //   Text(self.manage.fetchCoindModel[0].display.btc.usd.price)
+//                            Text(self.manage.fetchCoindModel[0].results[0].title)
+//                        }
                     }
                     
                 } else {
