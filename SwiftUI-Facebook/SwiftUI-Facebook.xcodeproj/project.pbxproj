@@ -24,6 +24,8 @@
 		E6E6891622F3101700EDE6E6 /* VedioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E6891522F3101700EDE6E6 /* VedioView.swift */; };
 		E6E6891822F3102700EDE6E6 /* FriendListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E6891722F3102700EDE6E6 /* FriendListView.swift */; };
 		E6E6891A22F3103600EDE6E6 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E6891922F3103600EDE6E6 /* NotificationView.swift */; };
+		E6E6891D22F3134300EDE6E6 /* CoverPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E6891C22F3134300EDE6E6 /* CoverPicture.swift */; };
+		E6E6891F22F317F800EDE6E6 /* UserProfilePic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E6891E22F317F800EDE6E6 /* UserProfilePic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		E6E6891522F3101700EDE6E6 /* VedioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VedioView.swift; sourceTree = "<group>"; };
 		E6E6891722F3102700EDE6E6 /* FriendListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListView.swift; sourceTree = "<group>"; };
 		E6E6891922F3103600EDE6E6 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		E6E6891C22F3134300EDE6E6 /* CoverPicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverPicture.swift; sourceTree = "<group>"; };
+		E6E6891E22F317F800EDE6E6 /* UserProfilePic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfilePic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,7 @@
 			children = (
 				E6E6891222F30E6E00EDE6E6 /* Pages */,
 				E677B67D22F2EA0D00126EE4 /* Feed */,
+				E6E6891B22F3132800EDE6E6 /* Profile */,
 				E677B67C22F2E9FA00126EE4 /* Story */,
 			);
 			path = View;
@@ -138,6 +143,15 @@
 				E6E6891922F3103600EDE6E6 /* NotificationView.swift */,
 			);
 			path = Pages;
+			sourceTree = "<group>";
+		};
+		E6E6891B22F3132800EDE6E6 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				E6E6891C22F3134300EDE6E6 /* CoverPicture.swift */,
+				E6E6891E22F317F800EDE6E6 /* UserProfilePic.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,10 +231,12 @@
 				E677B67022F2C5CF00126EE4 /* BackgroundView.swift in Sources */,
 				E677B66E22F2C27600126EE4 /* ProfileView.swift in Sources */,
 				E677B65A22F2C25B00126EE4 /* AppDelegate.swift in Sources */,
+				E6E6891D22F3134300EDE6E6 /* CoverPicture.swift in Sources */,
 				E677B65C22F2C25B00126EE4 /* SceneDelegate.swift in Sources */,
 				E6E6891A22F3103600EDE6E6 /* NotificationView.swift in Sources */,
 				E677B65E22F2C25B00126EE4 /* HomePageView.swift in Sources */,
 				E6E6891622F3101700EDE6E6 /* VedioView.swift in Sources */,
+				E6E6891F22F317F800EDE6E6 /* UserProfilePic.swift in Sources */,
 				E677B67422F2D11E00126EE4 /* Story.swift in Sources */,
 				E6E6891422F30E8500EDE6E6 /* UserProfileView.swift in Sources */,
 				E6E6891822F3102700EDE6E6 /* FriendListView.swift in Sources */,
