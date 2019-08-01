@@ -9,10 +9,12 @@
 import SwiftUI
 
 struct FeedView: View {
+    
+    @State var showModal = false
     var feed : Feed
     var body: some View {
         VStack(alignment: .leading){
-            HStack(spacing: 16){
+            HStack{
                 ProfileView(prileImage: feed.imagename)
                 
                 VStack(alignment: .leading){
@@ -24,20 +26,25 @@ struct FeedView: View {
                     Text("Publishd yesterday").font(.caption).foregroundColor(.gray)
                 }
                 Spacer()
+
                 Button(action: {
-                    
+                    self.showModal = true
                 }) {
                     Image(systemName: "ellipsis")
                         .foregroundColor(.gray)
-                }
+                }.sheet(isPresented: $showModal, content: {
+                    Text("This is model")
+                    
+                })
             }
             
-            Text(feed.user.username)
-                .padding([.leading, .trailing], 10)
+            Text(feed.text)
+               // .padding([.leading, .trailing], 10)
             Image(feed.imagename)
                 .resizable()
+                .cornerRadius(4)
                 .aspectRatio(contentMode: .fit).clipped().frame(height: 250, alignment: .center)
-        }.padding([.leading, .trailing], 20)
+        }
     }
 }
 

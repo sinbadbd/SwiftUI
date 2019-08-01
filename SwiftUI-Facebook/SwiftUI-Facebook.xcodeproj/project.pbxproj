@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		E677B65A22F2C25B00126EE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E677B65922F2C25B00126EE4 /* AppDelegate.swift */; };
 		E677B65C22F2C25B00126EE4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E677B65B22F2C25B00126EE4 /* SceneDelegate.swift */; };
-		E677B65E22F2C25B00126EE4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E677B65D22F2C25B00126EE4 /* ContentView.swift */; };
+		E677B65E22F2C25B00126EE4 /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E677B65D22F2C25B00126EE4 /* HomePageView.swift */; };
 		E677B66022F2C26000126EE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E677B65F22F2C26000126EE4 /* Assets.xcassets */; };
 		E677B66322F2C26000126EE4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E677B66222F2C26000126EE4 /* Preview Assets.xcassets */; };
 		E677B66622F2C26000126EE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E677B66422F2C26000126EE4 /* LaunchScreen.storyboard */; };
@@ -25,7 +25,7 @@
 		E677B65622F2C25B00126EE4 /* SwiftUI-Facebook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-Facebook.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E677B65922F2C25B00126EE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E677B65B22F2C25B00126EE4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E677B65D22F2C25B00126EE4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E677B65D22F2C25B00126EE4 /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
 		E677B65F22F2C26000126EE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E677B66222F2C26000126EE4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E677B66522F2C26000126EE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -68,15 +68,10 @@
 		E677B65822F2C25B00126EE4 /* SwiftUI-Facebook */ = {
 			isa = PBXGroup;
 			children = (
-				E677B67922F2E35400126EE4 /* FeedView.swift */,
-				E677B67522F2D27100126EE4 /* CardView.swift */,
-				E677B67722F2D49700126EE4 /* StoriesView.swift */,
-				E677B66F22F2C5CF00126EE4 /* BackgroundView.swift */,
-				E677B66D22F2C27600126EE4 /* ProfileView.swift */,
 				E677B67B22F2E9D000126EE4 /* View */,
 				E677B65922F2C25B00126EE4 /* AppDelegate.swift */,
 				E677B65B22F2C25B00126EE4 /* SceneDelegate.swift */,
-				E677B65D22F2C25B00126EE4 /* ContentView.swift */,
+				E677B65D22F2C25B00126EE4 /* HomePageView.swift */,
 				E677B65F22F2C26000126EE4 /* Assets.xcassets */,
 				E677B66422F2C26000126EE4 /* LaunchScreen.storyboard */,
 				E677B66722F2C26000126EE4 /* Info.plist */,
@@ -106,6 +101,10 @@
 		E677B67C22F2E9FA00126EE4 /* Story */ = {
 			isa = PBXGroup;
 			children = (
+				E677B67522F2D27100126EE4 /* CardView.swift */,
+				E677B67722F2D49700126EE4 /* StoriesView.swift */,
+				E677B66F22F2C5CF00126EE4 /* BackgroundView.swift */,
+				E677B66D22F2C27600126EE4 /* ProfileView.swift */,
 			);
 			path = Story;
 			sourceTree = "<group>";
@@ -113,6 +112,7 @@
 		E677B67D22F2EA0D00126EE4 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				E677B67922F2E35400126EE4 /* FeedView.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -195,7 +195,7 @@
 				E677B66E22F2C27600126EE4 /* ProfileView.swift in Sources */,
 				E677B65A22F2C25B00126EE4 /* AppDelegate.swift in Sources */,
 				E677B65C22F2C25B00126EE4 /* SceneDelegate.swift in Sources */,
-				E677B65E22F2C25B00126EE4 /* ContentView.swift in Sources */,
+				E677B65E22F2C25B00126EE4 /* HomePageView.swift in Sources */,
 				E677B67422F2D11E00126EE4 /* Story.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
