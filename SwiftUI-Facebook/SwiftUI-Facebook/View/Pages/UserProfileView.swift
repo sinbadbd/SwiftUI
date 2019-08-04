@@ -48,7 +48,7 @@ struct UserProfileView: View {
                     .foregroundColor(.gray)
                     .padding([.leading, .trailing],  10)
                 
-                HStack{
+                HStack( spacing: 40){
                     Button(action: {
                         
                     }) {
@@ -57,7 +57,7 @@ struct UserProfileView: View {
                         ZStack{
                             Image(systemName: "plus").offset(y: -45)
                         }
-                        Text("Add Story").padding(.top, -25)
+                        Text("Add Story").padding(.top, -25).font(.system(size: 18))
                         
                     }
                     
@@ -68,25 +68,27 @@ struct UserProfileView: View {
                         ZStack{
                             Image(systemName: "eye").offset(y: -45)
                         }
-                        Text("View as").padding(.top, -25).foregroundColor(.black)
+                        Text("View as").padding(.top, -25).foregroundColor(.black).font(.system(size: 14))
                     }
                     Button(action: {
                         
                     }) {
                         Circle().frame(width: 60, height: 60).foregroundColor(.init(red: 235/255, green: 237/255, blue: 239/255))
                         ZStack{
-                            Image(systemName: "user").offset(y: -45)
+                            Image(systemName: "eye").offset(y: -45)
                         }
-                        Text("Edit Profile").padding(.top, -25).foregroundColor(.black)
+                        Text("Edit Profile").padding(.top, -25).foregroundColor(.black).font(.system(size: 14))
                     }
                     Button(action: {
                         
                     }) {
                         Circle().frame(width: 60, height: 60).foregroundColor(.init(red: 235/255, green: 237/255, blue: 239/255))
                         ZStack{
-                            Text("•••").offset(y: -45)
+                            //Text("•••").offset(y: -45)
+                            Image(systemName: "eye").offset(y: -45)
                         }
-                        Text("Add Story").padding(.top, -25).foregroundColor(.black)
+                        Text("Add Story").padding(.top, -25).foregroundColor(.black).font(.system(size: 14))
+
                     }
                     
                 }
