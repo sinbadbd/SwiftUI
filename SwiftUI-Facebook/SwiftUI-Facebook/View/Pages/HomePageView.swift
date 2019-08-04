@@ -16,8 +16,8 @@ struct HomePageView: View {
                 StoriesView(stories: HomePageModel().stories).frame( height: 235).listRowInsets(EdgeInsets())
                 Spacer()
                 ForEach(model.feeds) { feed in
-                    FeedView(feed: feed).frame( height: 440, alignment: .top).padding()
-                }.listRowInsets(EdgeInsets())
+                    FeedView(feed: feed).frame( height: 440, alignment: .top).padding().listRowInsets(EdgeInsets())
+                }
             }.navigationBarTitle("Home")
         }
     }
