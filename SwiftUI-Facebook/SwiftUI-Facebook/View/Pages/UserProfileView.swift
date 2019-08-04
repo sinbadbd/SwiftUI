@@ -48,7 +48,7 @@ struct UserProfileView: View {
                     .foregroundColor(.gray)
                     .padding([.leading, .trailing],  10)
                 
-                HStack( spacing: 40){
+                HStack( spacing: 30){
                     Button(action: {
                         
                     }) {
@@ -88,10 +88,21 @@ struct UserProfileView: View {
                             Image(systemName: "eye").offset(y: -45)
                         }
                         Text("Add Story").padding(.top, -25).foregroundColor(.black).font(.system(size: 14))
-
+                        
                     }
                     
+                }.padding(.top, 30)
+                
+                
+                VStack(alignment: .leading){
+                    HStack{
+                        Image(systemName: "eye")
+                        Text("Fllowed bt ")
+                        Text("105 People").font(.headline)
+                    }
+                    Spacer()
                 }
+                
                 
                 
                 Spacer()
