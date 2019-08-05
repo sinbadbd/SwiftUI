@@ -12,102 +12,139 @@ struct UserProfileView: View {
     var body: some View {
         
         NavigationView{
-            VStack{
-                CoverPicture()
-                    .scaledToFill()
-                    .frame(height: 200)
-                    .clipped().cornerRadius(10)
-                    .padding([.leading, .trailing], 15)
-                
-                UserProfilePic()
-                    .offset(y: -130)
-                    .padding(.bottom, -130)
-                
-                ZStack{
-                    // MARK: TODO : NEED TO FIX
-                    Circle().frame(width: 40, height: 40).offset(x: 50, y: -50).foregroundColor(.init(red: 240/255, green: 240/255, blue: 240/255))
-                    Circle().stroke(Color.white, lineWidth: 2).frame(width: 40, height: 40).offset(x: 50, y: -50)
+            
+            ScrollView(.vertical){
+                VStack{
+                    CoverPicture()
+                        .scaledToFill()
+                        .frame(height: 200)
+                        .clipped().cornerRadius(10)
+                        .padding([.leading, .trailing], 15)
+                    
+                    UserProfilePic()
+                        .offset(y: -130)
+                        .padding(.bottom, -130)
+                    
                     ZStack{
+                        // MARK: TODO : NEED TO FIX
+                        Circle().frame(width: 40, height: 40).offset(x: 50, y: -50).foregroundColor(.init(red: 240/255, green: 240/255, blue: 240/255))
+                        Circle().stroke(Color.white, lineWidth: 2).frame(width: 40, height: 40).offset(x: 50, y: -50)
+                        ZStack{
+                            Button(action: {
+                                print("hi--")
+                            }) {
+                                Image(systemName: "camera")
+                            }.offset(x: 50, y: -50).foregroundColor(.black)
+                        }
+                    }
+                    
+                    
+                    HStack(alignment: .top){
+                        Text("Spider man")
+                            .font(.system(size: 34))
+                            .foregroundColor(.black).padding(.top, -40)
+                        Text("(Peter Parker)").font(.system(size: 24)).padding(.top, -32)
+                    }
+                    Text("Spider-Man is a fictional superhero created by writer-editor Stan Lee and writer-artist Steve Ditko.").font(.system(size: 20))
+                        .lineLimit(5)
+                        .foregroundColor(.gray)
+                        .padding([.leading, .trailing],  10)
+                    
+                    HStack( spacing: 30){
                         Button(action: {
-                            print("hi--")
+                            
                         }) {
-                            Image(systemName: "camera")
-                        }.offset(x: 50, y: -50).foregroundColor(.black)
-                    }
-                }
-                
-                
-                HStack(alignment: .top){
-                    Text("Spider man")
-                        .font(.system(size: 34))
-                        .foregroundColor(.black).padding(.top, -40)
-                    Text("(Peter Parker)").font(.system(size: 24)).padding(.top, -32)
-                }
-                Text("Spider-Man is a fictional superhero created by writer-editor Stan Lee and writer-artist Steve Ditko.").font(.system(size: 20))
-                    .lineLimit(5)
-                    .foregroundColor(.gray)
-                    .padding([.leading, .trailing],  10)
-                
-                HStack( spacing: 30){
-                    Button(action: {
-                        
-                    }) {
-                        
-                        Circle().frame(width: 60, height: 60).foregroundColor(Color.init(red: 233/255, green: 242/255, blue: 254/255))
-                        ZStack{
-                            Image(systemName: "plus").offset(y: -45)
+                            
+                            Circle().frame(width: 60, height: 60).foregroundColor(Color.init(red: 233/255, green: 242/255, blue: 254/255))
+                            ZStack{
+                                Image(systemName: "plus").offset(y: -45)
+                            }
+                            Text("Add Story").padding(.top, -25).font(.system(size: 18))
+                            
                         }
-                        Text("Add Story").padding(.top, -25).font(.system(size: 18))
                         
-                    }
+                        Button(action: {
+                            
+                        }) {
+                            Circle().frame(width: 60, height: 60).foregroundColor(.init(red: 235/255, green: 237/255, blue: 239/255))
+                            ZStack{
+                                Image(systemName: "eye").offset(y: -45)
+                            }
+                            Text("View as").padding(.top, -25).foregroundColor(.black).font(.system(size: 14))
+                        }
+                        Button(action: {
+                            
+                        }) {
+                            Circle().frame(width: 60, height: 60).foregroundColor(.init(red: 235/255, green: 237/255, blue: 239/255))
+                            ZStack{
+                                Image(systemName: "eye").offset(y: -45)
+                            }
+                            Text("Edit Profile").padding(.top, -25).foregroundColor(.black).font(.system(size: 14))
+                        }
+                        Button(action: {
+                            
+                        }) {
+                            Circle().frame(width: 60, height: 60).foregroundColor(.init(red: 235/255, green: 237/255, blue: 239/255))
+                            ZStack{
+                                //Text("•••").offset(y: -45)
+                                Image(systemName: "eye").offset(y: -45)
+                            }
+                            Text("Add Story").padding(.top, -25).foregroundColor(.black).font(.system(size: 14))
+                            
+                        }
+                        
+                    }.padding(.top, 30)
                     
-                    Button(action: {
-                        
-                    }) {
-                        Circle().frame(width: 60, height: 60).foregroundColor(.init(red: 235/255, green: 237/255, blue: 239/255))
-                        ZStack{
-                            Image(systemName: "eye").offset(y: -45)
-                        }
-                        Text("View as").padding(.top, -25).foregroundColor(.black).font(.system(size: 14))
-                    }
-                    Button(action: {
-                        
-                    }) {
-                        Circle().frame(width: 60, height: 60).foregroundColor(.init(red: 235/255, green: 237/255, blue: 239/255))
-                        ZStack{
-                            Image(systemName: "eye").offset(y: -45)
-                        }
-                        Text("Edit Profile").padding(.top, -25).foregroundColor(.black).font(.system(size: 14))
-                    }
-                    Button(action: {
-                        
-                    }) {
-                        Circle().frame(width: 60, height: 60).foregroundColor(.init(red: 235/255, green: 237/255, blue: 239/255))
-                        ZStack{
-                            //Text("•••").offset(y: -45)
-                            Image(systemName: "eye").offset(y: -45)
-                        }
-                        Text("Add Story").padding(.top, -25).foregroundColor(.black).font(.system(size: 14))
-                        
-                    }
                     
-                }.padding(.top, 30)
-                
-                
-                VStack(alignment: .leading){
-                    HStack{
-                        Image(systemName: "eye")
-                        Text("Fllowed bt ")
-                        Text("105 People").font(.headline)
+                    VStack(alignment: .leading){
+                        HStack{
+                            Image(systemName: "eye")
+                            Text("Fllowed bt ")
+                            Text("105 People").font(.headline)
+                            Spacer()
+                        }
+                    }.padding([.leading, .trailing], 20)
+                    
+                    VStack(alignment: .leading) {
+                        Text("Friends")
+                            .font(.headline)
+                        HStack {
+                            Text("190 friends")
+                                .font(.subheadline)
+                            Spacer()
+                            Text("Find Friends")
+                                .font(.subheadline)
+                        }
+                    }.padding([.leading, .trailing], 20)
+                    
+                    VStack {
+                        ForEach((1...6).reversed()) {
+                           
+                            Image("spider").scaledToFill()
+                                .frame(width:60,height: 60)
+                                .clipped().cornerRadius(10)
+                            Text("Ready or not, here I come!")
+                        }
+                         
                     }
+                    //                VStack{
+                    //                    ForEach((1...8)) {
+                    //                        // Text("\($0)…")
+                    //                        //Image("spider").scaledToFill()
+                    //                            .frame(height: 200)
+                    //                            .clipped().cornerRadius(10)
+                    //                        Text("Ready or not, here I come!")
+                    //                    }
+                    //                }
+                    
+                    
+                    
                     Spacer()
                 }
-                
-                
-                
-                Spacer()
             }
-            .navigationBarTitle("Profile")
+                
+                
+                .navigationBarTitle("Profile")
         }
     }
 }
