@@ -12,7 +12,6 @@ struct UserProfileView: View {
     var body: some View {
         
         NavigationView{
-            
             ScrollView(.vertical){
                 VStack{
                     CoverPicture()
@@ -31,6 +30,7 @@ struct UserProfileView: View {
                         Circle().stroke(Color.white, lineWidth: 2).frame(width: 40, height: 40).offset(x: 50, y: -50)
                         ZStack{
                             Button(action: {
+                             //   BottomMenu()
                                 print("hi--")
                             }) {
                                 Image(systemName: "camera")
@@ -45,6 +45,7 @@ struct UserProfileView: View {
                             .foregroundColor(.black).padding(.top, -40)
                         Text("(Peter Parker)").font(.system(size: 24)).padding(.top, -32)
                     }
+                    
                     Text("Spider-Man is a fictional superhero created by writer-editor Stan Lee and writer-artist Steve Ditko.").font(.system(size: 20))
                         .lineLimit(5)
                         .foregroundColor(.gray)
@@ -95,7 +96,6 @@ struct UserProfileView: View {
                         
                     }.padding(.top, 30)
                     
-                    
                     VStack(alignment: .leading){
                         HStack{
                             Image(systemName: "eye")
@@ -116,35 +116,36 @@ struct UserProfileView: View {
                                 .font(.subheadline)
                         }
                     }.padding([.leading, .trailing], 20)
+                  
                     
-                    VStack {
-                        ForEach((1...6).reversed()) {
-                           
-                            Image("spider").scaledToFill()
-                                .frame(width:60,height: 60)
-                                .clipped().cornerRadius(10)
-                            Text("Ready or not, here I come!")
+                    
+                    
+                    
+                    VStack{
+                        FlexGridView(columns: 3, numItems: 6, alignment: .leading) { index, colWidth in
+                            VStack {
+                                Image("spider").resizable().scaledToFit()
+                                    .padding(6)
+                                    .frame(width: colWidth, height: colWidth)
+                                    .tapAction { print("Meow!") }
+                                Text(" Spider man \(index)")
+                            }
+                            .padding()
+                                .frame(width: colWidth)
+                                //.border(Color.gray)
+                                .background(Color.white)
+                                .tapAction {
+                                    print("Tap!")
+                            }
                         }
-                         
                     }
-                    //                VStack{
-                    //                    ForEach((1...8)) {
-                    //                        // Text("\($0)…")
-                    //                        //Image("spider").scaledToFill()
-                    //                            .frame(height: 200)
-                    //                            .clipped().cornerRadius(10)
-                    //                        Text("Ready or not, here I come!")
-                    //                    }
-                    //                }
                     
-                    
+                   
                     
                     Spacer()
-                }
+                }.padding()
             }
-                
-                
-                .navigationBarTitle("Profile")
+            .navigationBarTitle("Profile")
         }
     }
 }

@@ -11,6 +11,7 @@ import SwiftUI
 struct VedioView: View {
     var body: some View {
         Text("Vedios")
+        
     }
 }
 

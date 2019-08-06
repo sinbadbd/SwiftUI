@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E624037722F946360057482D /* FriendListGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = E624037622F946360057482D /* FriendListGrid.swift */; };
+		E624037A22F956DA0057482D /* FlexGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E624037922F956DA0057482D /* FlexGridView.swift */; };
+		E624037D22F986340057482D /* BottomMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E624037C22F986340057482D /* BottomMenu.swift */; };
 		E677B65A22F2C25B00126EE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E677B65922F2C25B00126EE4 /* AppDelegate.swift */; };
 		E677B65C22F2C25B00126EE4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E677B65B22F2C25B00126EE4 /* SceneDelegate.swift */; };
 		E677B65E22F2C25B00126EE4 /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E677B65D22F2C25B00126EE4 /* HomePageView.swift */; };
@@ -29,6 +32,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E624037622F946360057482D /* FriendListGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListGrid.swift; sourceTree = "<group>"; };
+		E624037922F956DA0057482D /* FlexGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexGridView.swift; sourceTree = "<group>"; };
+		E624037C22F986340057482D /* BottomMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomMenu.swift; sourceTree = "<group>"; };
 		E677B65622F2C25B00126EE4 /* SwiftUI-Facebook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-Facebook.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E677B65922F2C25B00126EE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E677B65B22F2C25B00126EE4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +69,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E624037822F956C40057482D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E624037922F956DA0057482D /* FlexGridView.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E624037B22F986140057482D /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				E624037C22F986340057482D /* BottomMenu.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
 		E677B64D22F2C25B00126EE4 = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +104,7 @@
 		E677B65822F2C25B00126EE4 /* SwiftUI-Facebook */ = {
 			isa = PBXGroup;
 			children = (
+				E624037822F956C40057482D /* Utils */,
 				E677B67B22F2E9D000126EE4 /* View */,
 				E677B65922F2C25B00126EE4 /* AppDelegate.swift */,
 				E677B65B22F2C25B00126EE4 /* SceneDelegate.swift */,
@@ -106,6 +129,7 @@
 		E677B67B22F2E9D000126EE4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E624037B22F986140057482D /* CustomView */,
 				E6E6891222F30E6E00EDE6E6 /* Pages */,
 				E677B67D22F2EA0D00126EE4 /* Feed */,
 				E6E6891B22F3132800EDE6E6 /* Profile */,
@@ -150,6 +174,7 @@
 			children = (
 				E6E6891C22F3134300EDE6E6 /* CoverPicture.swift */,
 				E6E6891E22F317F800EDE6E6 /* UserProfilePic.swift */,
+				E624037622F946360057482D /* FriendListGrid.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -234,6 +259,8 @@
 				E6E6891D22F3134300EDE6E6 /* CoverPicture.swift in Sources */,
 				E677B65C22F2C25B00126EE4 /* SceneDelegate.swift in Sources */,
 				E6E6891A22F3103600EDE6E6 /* NotificationView.swift in Sources */,
+				E624037A22F956DA0057482D /* FlexGridView.swift in Sources */,
+				E624037722F946360057482D /* FriendListGrid.swift in Sources */,
 				E677B65E22F2C25B00126EE4 /* HomePageView.swift in Sources */,
 				E6E6891622F3101700EDE6E6 /* VedioView.swift in Sources */,
 				E6E6891F22F317F800EDE6E6 /* UserProfilePic.swift in Sources */,
@@ -241,6 +268,7 @@
 				E6E6891422F30E8500EDE6E6 /* UserProfileView.swift in Sources */,
 				E6E6891822F3102700EDE6E6 /* FriendListView.swift in Sources */,
 				E6E6891122F3084600EDE6E6 /* MainTabView.swift in Sources */,
+				E624037D22F986340057482D /* BottomMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
