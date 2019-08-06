@@ -9,6 +9,11 @@
 import SwiftUI
 
 struct UserProfileView: View {
+    @State var show = false
+    @State var showCertificates = false
+    @State var viewState = CGSize.zero
+    @State var showLogin = false
+    var menu: [Menu] = menuData
     var body: some View {
         
         NavigationView{
@@ -29,12 +34,7 @@ struct UserProfileView: View {
                         Circle().frame(width: 40, height: 40).offset(x: 50, y: -50).foregroundColor(.init(red: 240/255, green: 240/255, blue: 240/255))
                         Circle().stroke(Color.white, lineWidth: 2).frame(width: 40, height: 40).offset(x: 50, y: -50)
                         ZStack{
-                            Button(action: {
-                             //   BottomMenu()
-                                print("hi--")
-                            }) {
-                                Image(systemName: "camera")
-                            }.offset(x: 50, y: -50).foregroundColor(.black)
+                            MenuButton(show: $show).offset(x: 50, y: -50).foregroundColor(.black)
                         }
                     }
                     
@@ -116,7 +116,7 @@ struct UserProfileView: View {
                                 .font(.subheadline)
                         }
                     }.padding([.leading, .trailing], 20)
-                  
+                    
                     
                     
                     
@@ -140,7 +140,7 @@ struct UserProfileView: View {
                         }
                     }
                     
-                   
+                    
                     
                     Spacer()
                 }.padding()
@@ -157,3 +157,27 @@ struct UserProfileView_Previews: PreviewProvider {
     }
 }
 #endif
+
+struct MenuButton : View {
+    @Binding var show: Bool
+    var body: some View {
+        return VStack {
+            HStack {
+                Button(action: { self.show.toggle() }) {
+                    HStack {
+                        Spacer()
+                        Image("Menu")
+                            .foregroundColor(.primary)
+                    }.padding(17)
+                }
+//                .frame(width: 90, height: 56)
+//                    .background(Color("button"))
+//                    .cornerRadius(30)
+//                    .shadow(color: Color("buttonShadow"), radius: 10, y: 10)
+//                    .offset(x: -42, y: 82)
+//                Spacer()
+            }
+            Spacer()
+        }
+    }
+}
