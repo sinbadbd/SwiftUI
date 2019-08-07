@@ -31,25 +31,30 @@ struct UserProfileView: View {
                     
                     ZStack{
                         // MARK: TODO : NEED TO FIX
-                        Circle().frame(width: 40, height: 40).offset(x: 50, y: -50).foregroundColor(.init(red: 240/255, green: 240/255, blue: 240/255))
-                        Circle().stroke(Color.white, lineWidth: 2).frame(width: 40, height: 40).offset(x: 50, y: -50)
-                        ZStack{
-                            MenuButton(show: $show).offset(x: 50, y: -50).foregroundColor(.black)
+                        //                        Circle().frame(width: 40, height: 40).offset(x: 50, y: -50).foregroundColor(.init(red: 240/255, green: 240/255, blue: 240/255))
+                        //                        Circle().stroke(Color.white, lineWidth: 2).frame(width: 40, height: 40).offset(x: 50, y: -50)
+                        //                        ZStack{
+                        //                           // MenuButton(show: $show).offset(x: 50, y: -50).foregroundColor(.black)
+                        //                        }
+                        
+                        MenuButton(show: $show).offset(x: 50, y: -50).foregroundColor(.black)
+                    }
+                    
+                    VStack{
+                        HStack(alignment: .top){
+                            Text("Spider man")
+                                .font(.system(size: 34))
+                                .foregroundColor(.black).padding(.top, -40)
+                            Text("(Peter Parker)").font(.system(size: 24)).padding(.top, -32)
                         }
+                        
+                        Text("Spider-Man is a fictional superhero created by writer-editor Stan Lee and writer-artist Steve Ditko.").font(.system(size: 20))
+                            .lineLimit(5)
+                            .foregroundColor(.gray)
+                            .padding([.leading, .trailing],  10)
                     }
                     
                     
-                    HStack(alignment: .top){
-                        Text("Spider man")
-                            .font(.system(size: 34))
-                            .foregroundColor(.black).padding(.top, -40)
-                        Text("(Peter Parker)").font(.system(size: 24)).padding(.top, -32)
-                    }
-                    
-                    Text("Spider-Man is a fictional superhero created by writer-editor Stan Lee and writer-artist Steve Ditko.").font(.system(size: 20))
-                        .lineLimit(5)
-                        .foregroundColor(.gray)
-                        .padding([.leading, .trailing],  10)
                     
                     HStack( spacing: 30){
                         Button(action: {
@@ -141,6 +146,18 @@ struct UserProfileView: View {
                     }
                     
                     
+                    ZStack{
+                        
+                        BottomMenu(menu: menu)
+                            // .rotation3DEffect(Angle(degrees: show ? 0 : 0), axis: (x: 0, y: 0, z: 0))
+                            
+                            .animation(.easeInOut(duration: 0.3))
+                            
+                            .offset(y: show ? 0 : UIScreen.main.bounds.height)
+                            .tapAction {
+                                self.show.toggle()
+                        }
+                    }
                     
                     Spacer()
                 }.padding()
@@ -153,7 +170,14 @@ struct UserProfileView: View {
 #if DEBUG
 struct UserProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        UserProfileView()
+        
+        Group {
+            UserProfileView(menu: menuData)
+                // Home(menu: menuData)
+                .environment(\.colorScheme, .dark)
+            //                .previewDevice("iPhone SE")
+            //                .environment(\.sizeCategory, .extraExtraExtraLarge)
+        }
     }
 }
 #endif
@@ -170,12 +194,12 @@ struct MenuButton : View {
                             .foregroundColor(.primary)
                     }.padding(17)
                 }
-//                .frame(width: 90, height: 56)
-//                    .background(Color("button"))
-//                    .cornerRadius(30)
-//                    .shadow(color: Color("buttonShadow"), radius: 10, y: 10)
-//                    .offset(x: -42, y: 82)
-//                Spacer()
+                .frame(width: 90, height: 56)
+                    //  .background(Color("button"))
+                    .cornerRadius(30)
+                    // .shadow(color: Color("buttonShadow"), radius: 10, y: 10)
+                    .offset(x: -100, y: 82)
+                Spacer()
             }
             Spacer()
         }
