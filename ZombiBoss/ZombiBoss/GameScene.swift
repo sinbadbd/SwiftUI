@@ -16,7 +16,7 @@ class GameScene: SKScene {
     
     
     let zombieMovePointsPerSec : CGFloat = 480.0
-    var velocity = CGPoint(x: 0, y: 0)
+    var velocity = CGPoint.zero
     var lastUpdateTime : TimeInterval = 0
     var dt: TimeInterval = 0
     
@@ -71,32 +71,47 @@ class GameScene: SKScene {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        
-        //        for touch in touches {
-        //            let touchLocation = touch.location(in: self)
-        //            sceneTouched(touchLocation: touchLocation)
-        //
-        //        }
-        
         for touch: AnyObject in touches {
             
             let touchLocation = touch.location(in: self)
             sceneTouched(touchLocation: touchLocation)
-            
         }
-        
-        
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch: AnyObject in touches {
-            
             let touchLocation = touch.location(in: self)
             sceneTouched(touchLocation: touchLocation)
-            
         }
     }
     
+    // Iteration 4: Bounds checking
+    
+    func boundsCheckZombie() {
+        let bottomLeft = CGPoint.zero
+        let topRight = CGPoint(x: size.width, y: size.height)
+        
+        
+        if zombie.position.x <= bottomLeft.x {
+            zombie.position.x = bottomLeft.x
+            velocity.x = -velocity.x
+        }
+        if zombie.position.y <= bottomLeft.y {
+            zombie.position.y = bottomLeft.y
+            velocity.y = -velocity.y
+        }
+        
+        if zombie.position.x >= topRight.x {
+            zombie.position.x = topRight.x
+            velocity.x  = -velocity.x
+        }
+        
+        if zombie.position.y >= topRight.y {
+            zombie.position.y = topRight.y
+            velocity.y  = -velocity.y
+        }
+        
+    }
     
     
     func setupPlayer (){
@@ -108,6 +123,7 @@ class GameScene: SKScene {
         // Called before each frame is rendered
         //  zombie.position = CGPoint(x: zombie.position.x + 4, y: zombie.position.y)
         moveSprite(sprite: zombie, velocity: velocity)
+        boundsCheckZombie()
         
         if lastUpdateTime > 0 {
             dt = currentTime - lastUpdateTime
