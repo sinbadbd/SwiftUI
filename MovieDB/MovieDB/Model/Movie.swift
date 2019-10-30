@@ -7,7 +7,6 @@
 //
 
 import Foundation
-
 struct Movie : Decodable {
     var results : [Result]
 }
@@ -16,5 +15,5 @@ struct Result : Identifiable , Decodable {
     var original_title : String
     var overview : String
     var poster_path : String
-    var vote_average : Double
+    var vote_average : Float
 }

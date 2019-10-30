@@ -7,10 +7,10 @@
 //
 
 import SwiftUI
-
+import SDWebImageSwiftUI
 struct MovieDetailsView: View {
      
-      //  let movie : Movie
+      let details : Movie
         
         @State private var isTapped = false
         @State private var dragPosition = CGSize.zero
@@ -18,7 +18,10 @@ struct MovieDetailsView: View {
         var body: some View {
             ScrollView{
                 VStack{
-                    Image("movie.image")
+                    WebImage(url: URL(string: "\(imageURL)\(details.results[0].poster_path)"))
+                    .onSuccess(perform: { (image, cacheType) in
+                        // Success
+                    })
                         .resizable()
                         .scaledToFill()
                         .frame(height: 300)
@@ -38,7 +41,7 @@ struct MovieDetailsView: View {
                            
                     //}
                     
-                    Text("movie.name")
+                    Text(details.results[0].original_title)
                         .font(.system(size: 20))
                         .fontWeight(.bold)
                         .lineLimit(4)
@@ -48,7 +51,10 @@ struct MovieDetailsView: View {
                         .padding(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
                     
                     
-                    Image("movie.image")
+                    WebImage(url: URL(string: "\(imageURL)\(details.results[0].poster_path)"))
+                    .onSuccess(perform: { (image, cacheType) in
+                        // Success
+                    })
                         .resizable()
                         .scaledToFill()
                         .clipped()
@@ -66,7 +72,7 @@ struct MovieDetailsView: View {
                     
                     // MARK: NEED REFACTOR CODE: BUG
                     VStack(alignment: .leading){
-                        Text("dfs")
+                        Text(details.results[0].overview)
                             .font(.system(size: 16))
                             .multilineTextAlignment(.leading)
                             .foregroundColor(.primary)
