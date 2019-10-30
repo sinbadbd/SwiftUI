@@ -14,9 +14,9 @@
 		1DCB072323699388007D8808 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DCB072123699388007D8808 /* Main.storyboard */; };
 		1DCB07252369938F007D8808 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DCB07242369938F007D8808 /* Assets.xcassets */; };
 		1DCB07282369938F007D8808 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DCB07262369938F007D8808 /* LaunchScreen.storyboard */; };
-		1DCB073223699690007D8808 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 1DCB072F2369968E007D8808 /* Images */; };
-		1DCB073323699691007D8808 /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = 1DCB07302369968F007D8808 /* Sounds */; };
-		1DCB073423699691007D8808 /* sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1DCB073123699690007D8808 /* sprites.atlas */; };
+		1DCB073B23699835007D8808 /* sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1DCB073823699831007D8808 /* sprites.atlas */; };
+		1DCB073C23699835007D8808 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 1DCB073923699834007D8808 /* Images */; };
+		1DCB073D23699835007D8808 /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = 1DCB073A23699835007D8808 /* Sounds */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,9 +29,9 @@
 		1DCB07242369938F007D8808 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1DCB07272369938F007D8808 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1DCB07292369938F007D8808 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1DCB072F2369968E007D8808 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
-		1DCB07302369968F007D8808 /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sounds; sourceTree = "<group>"; };
-		1DCB073123699690007D8808 /* sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = sprites.atlas; sourceTree = "<group>"; };
+		1DCB073823699831007D8808 /* sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = sprites.atlas; sourceTree = "<group>"; };
+		1DCB073923699834007D8808 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
+		1DCB073A23699835007D8808 /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sounds; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +64,9 @@
 		1DCB071623699388007D8808 /* ZombiBoss */ = {
 			isa = PBXGroup;
 			children = (
-				1DCB073523699701007D8808 /* Assets */,
+				1DCB073923699834007D8808 /* Images */,
+				1DCB073A23699835007D8808 /* Sounds */,
+				1DCB073823699831007D8808 /* sprites.atlas */,
 				1DCB071723699388007D8808 /* AppDelegate.swift */,
 				1DCB071B23699388007D8808 /* Actions.sks */,
 				1DCB071D23699388007D8808 /* GameScene.swift */,
@@ -75,16 +77,6 @@
 				1DCB07292369938F007D8808 /* Info.plist */,
 			);
 			path = ZombiBoss;
-			sourceTree = "<group>";
-		};
-		1DCB073523699701007D8808 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				1DCB072F2369968E007D8808 /* Images */,
-				1DCB07302369968F007D8808 /* Sounds */,
-				1DCB073123699690007D8808 /* sprites.atlas */,
-			);
-			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,13 +137,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DCB073423699691007D8808 /* sprites.atlas in Resources */,
-				1DCB073323699691007D8808 /* Sounds in Resources */,
-				1DCB073223699690007D8808 /* Images in Resources */,
+				1DCB073B23699835007D8808 /* sprites.atlas in Resources */,
 				1DCB072323699388007D8808 /* Main.storyboard in Resources */,
 				1DCB07252369938F007D8808 /* Assets.xcassets in Resources */,
 				1DCB07282369938F007D8808 /* LaunchScreen.storyboard in Resources */,
+				1DCB073C23699835007D8808 /* Images in Resources */,
 				1DCB071C23699388007D8808 /* Actions.sks in Resources */,
+				1DCB073D23699835007D8808 /* Sounds in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
