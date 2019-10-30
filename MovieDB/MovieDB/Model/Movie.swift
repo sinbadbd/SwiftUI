@@ -11,7 +11,8 @@ import Foundation
 struct Movie : Decodable {
     var results : [Result]
 }
-struct Result : Identifiable , Decodable {
+struct Result :  Decodable {
+//    var id  = UUID()
     var id : Int
     var original_title : String
     var overview : String

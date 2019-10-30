@@ -17,9 +17,10 @@ struct ContentView: View {
         
         NavigationView {
             List {
-                NavigationLink(destination: MovieDetailsView()) {
-                    NowPlaying()
-                } 
+                NowPlaying()
+//                NavigationLink(destination: MovieDetailsView()) {
+//                    NowPlaying()
+//                }
             }
             .navigationBarTitle("Now Playing")
         }

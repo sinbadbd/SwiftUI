@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  MovieDB
+//  AnimationLab
 //
-//  Created by Imran on 22/10/19.
+//  Created by Imran on 29/10/19.
 //  Copyright © 2019 Imran. All rights reserved.
 //
 
@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Create the SwiftUI view that provides the window contents.
-        let contentView = NowPlaying()
+        let contentView = ContentView(pct: 1.1)
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
