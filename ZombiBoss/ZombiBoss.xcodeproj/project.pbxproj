@@ -17,6 +17,7 @@
 		1DCB073B23699835007D8808 /* sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1DCB073823699831007D8808 /* sprites.atlas */; };
 		1DCB073C23699835007D8808 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 1DCB073923699834007D8808 /* Images */; };
 		1DCB073D23699835007D8808 /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = 1DCB073A23699835007D8808 /* Sounds */; };
+		1DF24A61236B0240002DBDC7 /* MyUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF24A60236B0240002DBDC7 /* MyUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		1DCB073823699831007D8808 /* sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = sprites.atlas; sourceTree = "<group>"; };
 		1DCB073923699834007D8808 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
 		1DCB073A23699835007D8808 /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sounds; sourceTree = "<group>"; };
+		1DF24A60236B0240002DBDC7 /* MyUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 		1DCB071623699388007D8808 /* ZombiBoss */ = {
 			isa = PBXGroup;
 			children = (
+				1DF24A5F236B021A002DBDC7 /* Utils */,
 				1DCB073923699834007D8808 /* Images */,
 				1DCB073A23699835007D8808 /* Sounds */,
 				1DCB073823699831007D8808 /* sprites.atlas */,
@@ -77,6 +80,14 @@
 				1DCB07292369938F007D8808 /* Info.plist */,
 			);
 			path = ZombiBoss;
+			sourceTree = "<group>";
+		};
+		1DF24A5F236B021A002DBDC7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1DF24A60236B0240002DBDC7 /* MyUtils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,6 +168,7 @@
 				1DCB071E23699388007D8808 /* GameScene.swift in Sources */,
 				1DCB072023699388007D8808 /* GameViewController.swift in Sources */,
 				1DCB071823699388007D8808 /* AppDelegate.swift in Sources */,
+				1DF24A61236B0240002DBDC7 /* MyUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

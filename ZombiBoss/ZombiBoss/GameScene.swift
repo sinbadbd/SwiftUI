@@ -69,6 +69,13 @@ class GameScene: SKScene {
         moveZombieToward(location: touchLocation)
     }
     
+    //Rotating the zombie
+    func rotateSprite(sprite: SKSpriteNode, direction: CGPoint){
+        sprite.zRotation = CGFloat(atan2(Double(direction.y), Double(direction.x)))
+    }
+    
+    
+    // Touch Function
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         for touch: AnyObject in touches {
@@ -124,6 +131,7 @@ class GameScene: SKScene {
         //  zombie.position = CGPoint(x: zombie.position.x + 4, y: zombie.position.y)
         moveSprite(sprite: zombie, velocity: velocity)
         boundsCheckZombie()
+        rotateSprite(sprite: zombie, direction: velocity)
         
         if lastUpdateTime > 0 {
             dt = currentTime - lastUpdateTime
