@@ -13,15 +13,40 @@ class GameScene: SKScene {
     
     
     let zombie = SKSpriteNode(imageNamed: "zombie1")
-    
+    let enemy = SKSpriteNode(imageNamed: "enemy")
     
     let zombieMovePointsPerSec : CGFloat = 4.0 * .pi
     var velocity = CGPoint.zero
     var lastUpdateTime : TimeInterval = 0
     var dt: TimeInterval = 0
     
+    var playableRect: CGRect
     
     
+    
+    override init(size: CGSize) {
+        
+        let maxAscpectRatio:CGFloat = 16.0/9.0 // 1
+        let playableHeight = size.width / maxAscpectRatio
+        let playableMargin = (size.height - playableHeight) / 2.0
+        playableRect = CGRect(x: 0, y: playableMargin, width: size.width, height: playableHeight)
+        print("maxAscpectRatio== \(maxAscpectRatio).....playableHeight== \(playableHeight).....playableMargin== \(playableMargin)....playableRect== \(playableRect)")
+        super.init(size: size)
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    func debugDrawPlayableArea() {
+        let shape = SKShapeNode()
+        let path = CGMutablePath()
+        path.addRect(playableRect)
+        shape.path = path
+        shape.strokeColor = SKColor.red
+        shape.lineWidth = 4.0
+        addChild(shape)
+    }
     override func didMove(to view: SKView) {
         backgroundColor = SKColor.white
         
@@ -31,6 +56,8 @@ class GameScene: SKScene {
         addChild(background)
         
         setupPlayer()
+        spawnEnemy()
+        debugDrawPlayableArea()
     }
     //Iteration 2: Velocity multiplied by delta time
     func moveSprite(sprite: SKSpriteNode, velocity: CGPoint){
@@ -95,9 +122,9 @@ class GameScene: SKScene {
     // Iteration 4: Bounds checking
     
     func boundsCheckZombie() {
-        let bottomLeft = CGPoint.zero
-        let topRight = CGPoint(x: size.width, y: size.height)
-        
+        let bottomLeft = CGPoint(x: 0, y: playableRect.minY)
+        let topRight = CGPoint(x: size.width, y: playableRect.maxY)
+       // print("bottomLeft:==\(bottomLeft) topRight==\(topRight)")
         
         if zombie.position.x <= bottomLeft.x {
             zombie.position.x = bottomLeft.x
@@ -124,6 +151,22 @@ class GameScene: SKScene {
     func setupPlayer (){
         zombie.position = CGPoint(x: 400, y: 400)
         addChild(zombie)
+    }
+    func spawnEnemy(){
+        enemy.position = CGPoint(x: size.width + enemy.size.width / 2 , y: size.height /  2)
+        print("Enemy Postion : \(enemy.position)")
+        addChild(enemy)
+        
+        // let actionMove = SKAction.moveTo(x: CGPoint(x: CGFloat(-enemy.size.width/2) , y: enemy.position.y), duration: 2.0)
+        
+        let actionMove = SKAction.move(to: CGPoint(x: -enemy.size.width/2 , y: enemy.position.y), duration: 0.5)
+        print("action Move: \(actionMove)")
+        enemy.run(actionMove)
+        
+        
+        
+        
+        
     }
     
     override func update(_ currentTime: TimeInterval) {
