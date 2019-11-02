@@ -15,17 +15,18 @@ class GameScene: SKScene {
     let zombie = SKSpriteNode(imageNamed: "zombie1")
     
     
-    let zombieMovePointsPerSec : CGFloat = 4.0 * .pi
+    let zombieMovePointsPerSec : CGFloat = 100.0 * .pi
     var velocity = CGPoint.zero
     var lastUpdateTime : TimeInterval = 0
     var dt: TimeInterval = 0
     
     var playableRect: CGRect
     
-    
+    var textures:[SKTexture] = []
     
     override init(size: CGSize) {
-        
+       
+
         let maxAscpectRatio:CGFloat = 16.0/9.0 // 1
         let playableHeight = size.width / maxAscpectRatio
         let playableMargin = (size.height - playableHeight) / 2.0
@@ -152,8 +153,20 @@ class GameScene: SKScene {
     
     
     func setupPlayer (){
+         let zombieAnimation:SKAction
+        
         zombie.position = CGPoint(x: 400, y: 400)
         addChild(zombie)
+        
+        for i in 1...4{
+            textures.append(SKTexture(imageNamed: "zombie\(i)"))
+            
+        }
+        textures.append(textures[2])
+        textures.append(textures[1])
+        zombieAnimation = SKAction.repeatForever(SKAction.animate(with: textures, timePerFrame: 0.1))
+        zombie.run(SKAction.repeatForever(zombieAnimation))
+        
     }
     func spawnEnemy(){
         let enemy = SKSpriteNode(imageNamed: "enemy")
