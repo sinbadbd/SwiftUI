@@ -13,7 +13,7 @@ class GameScene: SKScene {
     
     
     let zombie = SKSpriteNode(imageNamed: "zombie1")
-    let enemy = SKSpriteNode(imageNamed: "enemy")
+    
     
     let zombieMovePointsPerSec : CGFloat = 4.0 * .pi
     var velocity = CGPoint.zero
@@ -56,7 +56,10 @@ class GameScene: SKScene {
         addChild(background)
         
         setupPlayer()
-        spawnEnemy()
+       // spawnEnemy()
+        run(SKAction.repeatForever(SKAction.sequence([SKAction.run(spawnEnemy), SKAction.wait(forDuration: 2.0)])))
+
+    
         debugDrawPlayableArea()
     }
     //Iteration 2: Velocity multiplied by delta time
@@ -124,7 +127,7 @@ class GameScene: SKScene {
     func boundsCheckZombie() {
         let bottomLeft = CGPoint(x: 0, y: playableRect.minY)
         let topRight = CGPoint(x: size.width, y: playableRect.maxY)
-       // print("bottomLeft:==\(bottomLeft) topRight==\(topRight)")
+        // print("bottomLeft:==\(bottomLeft) topRight==\(topRight)")
         
         if zombie.position.x <= bottomLeft.x {
             zombie.position.x = bottomLeft.x
@@ -153,20 +156,33 @@ class GameScene: SKScene {
         addChild(zombie)
     }
     func spawnEnemy(){
-        enemy.position = CGPoint(x: size.width + enemy.size.width / 2 , y: size.height /  2)
+        let enemy = SKSpriteNode(imageNamed: "enemy")
+        enemy.name = "enemy"
+        enemy.position = CGPoint(x: size.width + enemy.size.width / 2 , y: CGFloat.random(min: playableRect.minY + enemy.size.height / 2, max: playableRect.maxY - enemy.size.height / 2))
         print("Enemy Postion : \(enemy.position)")
         addChild(enemy)
+         
+ 
         
-        // let actionMove = SKAction.moveTo(x: CGPoint(x: CGFloat(-enemy.size.width/2) , y: enemy.position.y), duration: 2.0)
+      //  let actionMidMove = SKAction.move(  to: CGPoint(x: size.width / 2 , y: playableRect.minX + enemy.size.height / 2), duration: 1.0)
         
-        let actionMove = SKAction.move(to: CGPoint(x: -enemy.size.width/2 , y: enemy.position.y), duration: 0.5)
-        print("action Move: \(actionMove)")
-        enemy.run(actionMove)
+      //  let actionMove = SKAction.move(to: CGPoint(x: -enemy.size.width/2 , y: enemy.position.y), duration: 1.00)
+       // print("action Move: \(actionMove)")
+        ///
+       // let actionMidMove = SKAction.moveBy(x: -size.width / 2 - enemy.size.width / 2, y: -playableRect.height / 2 + enemy.size.height / 2 , duration: 1.0)
+        
+       // let actionMove = SKAction.moveBy(x: -size.width / 2 - enemy.size.width / 2, y: -playableRect.height / 2 - enemy.size.height / 2 , duration: 1.0)
         
         
+        let actionMove = SKAction.moveTo(x: -enemy.size.width / 2, duration: 2.0)
         
-        
-        
+//        let reverseMid = actionMidMove.reversed()
+//        let reverseMove = actionMove.reversed()
+//        let sequence = SKAction.sequence([actionMidMove, actionMove, reverseMove, reverseMid ])
+////
+//        let sequence = SKAction.sequence([actionMidMove, actionMove])
+        let actionRemove = SKAction.removeFromParent()
+        enemy.run(SKAction.sequence([actionMove, actionRemove]))
     }
     
     override func update(_ currentTime: TimeInterval) {
