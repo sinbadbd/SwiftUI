@@ -60,7 +60,7 @@ class GameScene: SKScene {
        // spawnEnemy()
         run(SKAction.repeatForever(SKAction.sequence([SKAction.run(spawnEnemy), SKAction.wait(forDuration: 2.0)])))
 
-    
+    spawnCat()
         debugDrawPlayableArea()
     }
     //Iteration 2: Velocity multiplied by delta time
@@ -75,7 +75,7 @@ class GameScene: SKScene {
     //Iteration 3: Moving toward touches
     
     func moveZombieToward(location: CGPoint) {
-        startZombieAnimation()
+        //startZombieAnimation()
 
         // Step 1: Find the offset vector
         let offset = CGPoint(x: location.x - zombie.position.x, y: location.y - zombie.position.y)
@@ -166,7 +166,7 @@ class GameScene: SKScene {
         textures.append(textures[2])
         textures.append(textures[1])
         zombieAnimation = SKAction.repeatForever(SKAction.animate(with: textures, timePerFrame: 0.1))
-       zombie.run(SKAction.repeatForever(zombieAnimation))
+        zombie.run(SKAction.repeatForever(zombieAnimation))
        // startZombieAnimation()
 
     }
@@ -208,6 +208,23 @@ class GameScene: SKScene {
     func stopZombieAnimation(){
         zombie.removeAction(forKey: "animation")
     }
+    
+    
+    func spawnCat(){
+        let cat = SKSpriteNode(imageNamed: "cat")
+       
+        cat.position = CGPoint(x: CGFloat.random(min: playableRect.minX, max: playableRect.maxX), y: CGFloat.random(min: playableRect.minY, max: playableRect.maxY))
+        cat.setScale(0)
+        addChild(cat)
+        
+        let appear = SKAction.scale(to: 1.0, duration: 0.5)
+        let wait = SKAction.wait(forDuration: 10.0)
+        let disapper = SKAction.scale(to: 0, duration: 0.5)
+        let removeFromParent = SKAction.removeFromParent()
+        let actions = [appear,wait, disapper, removeFromParent]
+        cat.run(SKAction.sequence(actions))
+    }
+    
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         //  zombie.position = CGPoint(x: zombie.position.x + 4, y: zombie.position.y)
