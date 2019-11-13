@@ -60,7 +60,8 @@ class GameScene: SKScene {
        // spawnEnemy()
         run(SKAction.repeatForever(SKAction.sequence([SKAction.run(spawnEnemy), SKAction.wait(forDuration: 2.0)])))
 
-    spawnCat()
+      // spawnCat()
+        run(SKAction.repeatForever(SKAction.sequence([SKAction.run(spawnCat), SKAction.wait(forDuration: 1.0)])))
         debugDrawPlayableArea()
     }
     //Iteration 2: Velocity multiplied by delta time
