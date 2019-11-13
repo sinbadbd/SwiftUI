@@ -218,11 +218,27 @@ class GameScene: SKScene {
         cat.setScale(0)
         addChild(cat)
         
+        //Rotate action
+        cat.zRotation = -.pi / 16.0
+        let leftWiggle = SKAction.rotate(byAngle: .pi / 8.0, duration: 0.5)
+        let rightWiggle = leftWiggle.reversed()
+        let fullWiggle = SKAction.sequence([leftWiggle, rightWiggle])
+      //  let wiggleWait = SKAction.repeat(fullWiggle, count: 10)
+        
+        
+        //Group action
+        let scaleUp = SKAction.scale(to: 1.0, duration: 0.25)
+        let scaleDown = scaleUp.reversed()
+        let fullScale = SKAction.sequence([scaleUp, scaleDown, scaleUp, scaleDown])
+        let group = SKAction.group([fullScale, fullWiggle])
+        let groupWait = SKAction.repeat(group, count: 10)
+        
+        //Scale action
         let appear = SKAction.scale(to: 1.0, duration: 0.5)
-        let wait = SKAction.wait(forDuration: 10.0)
+       // let wait = SKAction.wait(forDuration: 10.0)
         let disapper = SKAction.scale(to: 0, duration: 0.5)
         let removeFromParent = SKAction.removeFromParent()
-        let actions = [appear,wait, disapper, removeFromParent]
+        let actions = [appear, groupWait, disapper, removeFromParent]
         cat.run(SKAction.sequence(actions))
     }
     
