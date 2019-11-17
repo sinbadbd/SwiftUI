@@ -25,6 +25,8 @@ class GameScene: SKScene {
     var textures:[SKTexture] = []
     var zombieAnimation = SKAction()
     
+    let catMovePointsPerSec: CGFloat = 480.0
+
     override init(size: CGSize) {
         
         let maxAscpectRatio:CGFloat = 16.0/9.0 // 1
@@ -64,6 +66,11 @@ class GameScene: SKScene {
         run(SKAction.repeatForever(SKAction.sequence([SKAction.run(spawnCat), SKAction.wait(forDuration: 1.0)])))
         debugDrawPlayableArea()
     }
+    
+    override func didEvaluateActions() {
+        checkCollisions()
+    }
+    
     //Iteration 2: Velocity multiplied by delta time
     func moveSprite(sprite: SKSpriteNode, velocity: CGPoint){
         let amountToMove = CGPoint(x: velocity.x * CGFloat(dt), y: velocity.y * CGFloat(dt))
@@ -213,7 +220,7 @@ class GameScene: SKScene {
     
     func spawnCat(){
         let cat = SKSpriteNode(imageNamed: "cat")
-        
+//        cat.zPosition = 1
         cat.position = CGPoint(x: CGFloat.random(min: playableRect.minX, max: playableRect.maxX), y: CGFloat.random(min: playableRect.minY, max: playableRect.maxY))
         cat.setScale(0)
         addChild(cat)
@@ -243,7 +250,17 @@ class GameScene: SKScene {
     }
     
     func zombieHitCat(cat: SKSpriteNode){
-        cat.removeFromParent()
+       // cat.removeFromParent()
+       // cat.wasTurned = true
+        cat.name = "train"
+        cat.removeAllActions()
+        cat.setScale(1.0)
+        cat.zRotation = 0
+        cat.run(
+          SKAction.colorize(
+            with: SKColor.green,
+            colorBlendFactor: 1.0,
+            duration: 0.2))
     }
     
     func zombieHitEnemy(enemy: SKSpriteNode){
@@ -255,9 +272,11 @@ class GameScene: SKScene {
             let cat = node as! SKSpriteNode
             if cat.frame.intersects(self.zombie.frame){
                 hitCats.append(cat)
+                print("hit===\(hitCats.append(cat))")
             }
             for cat in hitCats {
                 self.zombieHitCat(cat: cat)
+                print(self.zombieHitCat(cat: cat))
             }
         }
         
@@ -267,10 +286,35 @@ class GameScene: SKScene {
             if node.frame.insetBy(dx: 20, dy: 20).intersects(
                 self.zombie.frame) {
                 hitEnemies.append(enemy)
+                
+                let blinkTimes = 10.0
+                let duration = 3.0
+                let blinkAction = SKAction.customAction(withDuration: duration) {
+                    node, elapsedTime in
+                    let slice = duration / blinkTimes
+                    let remainder = Double(elapsedTime).truncatingRemainder(dividingBy: slice)
+                    node.isHidden = remainder > slice / 2
+                }
             }
             for enemy in hitEnemies {
                 self.zombieHitEnemy(enemy: enemy)
             }
+        }
+    }
+    
+    func moveTraing(){
+        var targetPosition = zombie.position
+        enumerateChildNodes(withName: "train") { (node, _) in
+            if !node.hasActions(){
+                let actionDuration = 0.3
+                let offset = targetPosition - node.position
+                let direction = offset.normalized()
+                let amountToMovePerSec = direction * self.catMovePointsPerSec
+                let amountToMove = amountToMovePerSec * CGFloat(actionDuration)
+                let moveAction =  SKAction.moveBy(x: amountToMove.x, y: amountToMove.y, duration: actionDuration)
+                node.run(moveAction)
+            }
+            targetPosition = node.position
         }
     }
     override func update(_ currentTime: TimeInterval) {
@@ -282,6 +326,10 @@ class GameScene: SKScene {
         boundsCheckZombie()
         rotateSprite(sprite: zombie, direction: velocity, rotateRadiansPerSec: shortestAngleBetween(angle1: CGFloat(sign(dt)), angle2: CGFloat(sign(dt))))
         checkCollisions()
+        moveTraing()
+        
+        
+        
         if lastUpdateTime > 0 {
             dt = currentTime - lastUpdateTime
         } else {
