@@ -73,9 +73,9 @@ struct ContentView: View {
                 Spacer()
                 NumberView(number: 2, state: $state)
                 Spacer()
-                NumberView(number: 3, state: $state)
+                FunctionView(fuction: .singus, state: $state)
                 Spacer()
-                NumberView(number: 4, state: $state)
+                FunctionView(fuction: .cosius, state: $state)
             }
         }.padding(32)
     }
@@ -108,8 +108,49 @@ struct NumberView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+struct FunctionView : View {
+    
+    enum MathFunction{
+        case singus,cosius, tanges
+        func string() -> String {
+            switch self {
+            case .singus: return "sin"
+            case .cosius: return "cos"
+            case .tanges: return "tan"
+            }
+        }
+        
+        func operation(_ input: Double) -> Double{
+            switch self {
+            case .singus: return sin(input)
+            case .cosius: return cos(input)
+            case .tanges: return tan(input)
+            }
+        }
+    }
+    var fuction: MathFunction
+    
+    @Binding var state : CalculateState
+    
+    var body: some View{
+        return Text(fuction.string())
+            .font(.title)
+            .fontWeight(.bold)
+            .foregroundColor(.black)
+            .frame(width: 64, height: 64)
+            .background(Color.gray.opacity(0.2))
+            .cornerRadius(20)
+            .shadow(color: Color.blue.opacity(0.3), radius: 10, x: 0, y: 10)
+            .onTapGesture {
+                self.state.currentNumber = self.fuction.operation(self.state.currentNumber)
+        }
+    }
+    
+    
+    
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView()
+        }
     }
 }
