@@ -21,6 +21,7 @@
 		1D2521CC238A83A3000DC595 /* Buttons in Resources */ = {isa = PBXBuildFile; fileRef = 1D2521C6238A83A3000DC595 /* Buttons */; };
 		1D2521D0238A855C000DC595 /* GameplayScne.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1D2521CF238A855C000DC595 /* GameplayScne.sks */; };
 		1D2521D3238A8638000DC595 /* GameplayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2521D2238A8638000DC595 /* GameplayScene.swift */; };
+		1D2521D6238A9724000DC595 /* Bird.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2521D5238A9724000DC595 /* Bird.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		1D2521C6238A83A3000DC595 /* Buttons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Buttons; sourceTree = "<group>"; };
 		1D2521CF238A855C000DC595 /* GameplayScne.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameplayScne.sks; sourceTree = "<group>"; };
 		1D2521D2238A8638000DC595 /* GameplayScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayScene.swift; sourceTree = "<group>"; };
+		1D2521D5238A9724000DC595 /* Bird.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bird.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,9 +112,18 @@
 		1D2521D1238A8615000DC595 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				1D2521D4238A970E000DC595 /* Bird Class */,
 				1D2521D2238A8638000DC595 /* GameplayScene.swift */,
 			);
 			path = Class;
+			sourceTree = "<group>";
+		};
+		1D2521D4238A970E000DC595 /* Bird Class */ = {
+			isa = PBXGroup;
+			children = (
+				1D2521D5238A9724000DC595 /* Bird.swift */,
+			);
+			path = "Bird Class";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,6 +207,7 @@
 			files = (
 				1D2521B2238A831B000DC595 /* GameViewController.swift in Sources */,
 				1D2521D3238A8638000DC595 /* GameplayScene.swift in Sources */,
+				1D2521D6238A9724000DC595 /* Bird.swift in Sources */,
 				1D2521AA238A831B000DC595 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
