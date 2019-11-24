@@ -8,6 +8,8 @@
 
 import SpriteKit
 
+
+
 class GameplayScene: SKScene {
     
     var bird = Bird()
@@ -19,19 +21,22 @@ class GameplayScene: SKScene {
         moveBG()
         
     }
-
-
-
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        bird.flap()
+    }
+    
     func initialize(){
         createBackground()
         createGround()
         createBird()
-     }
+    }
     
     
     func createBird(){
-      bird.initalize()
         bird  = Bird(imageNamed: "Blue 1")
+        bird.initalize()
         bird.position = CGPoint(x: -50, y: 0 )
         addChild(bird)
     }
@@ -43,6 +48,7 @@ class GameplayScene: SKScene {
             bg.zPosition = 0
             bg.anchorPoint = CGPoint(x: 0.5, y: 0.5)
             bg.position =  CGPoint(x: CGFloat(i) * bg.size.width, y: 0)
+            
             self.addChild(bg)
         }
     }
@@ -54,8 +60,12 @@ class GameplayScene: SKScene {
             ground.zPosition = 4
             ground.anchorPoint = CGPoint(x: 0.5, y: 0.5)
             ground.position = CGPoint(x: CGFloat(i) * ground.size.width, y: -(self.frame.height / 2))
-//            print(self.frame.height)
-//            print(self.frame.height / 2 )
+            ground.physicsBody = SKPhysicsBody(rectangleOf: ground.size)
+            ground.physicsBody?.affectedByGravity = false
+            ground.physicsBody?.isDynamic = false
+            ground.physicsBody?.categoryBitMask = ColliderType.Ground
+            ground.physicsBody?.collisionBitMask = ColliderType.Bird
+            ground.physicsBody?.contactTestBitMask = ColliderType.Bird
             addChild(ground)
         }
     }
