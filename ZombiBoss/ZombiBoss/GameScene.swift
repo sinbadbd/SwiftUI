@@ -303,8 +303,11 @@ class GameScene: SKScene {
     }
     
     func moveTraing(){
+        var trainCount = 0
+
         var targetPosition = zombie.position
-        enumerateChildNodes(withName: "train") { (node, _) in
+        enumerateChildNodes(withName: "train") { (node, stop) in
+            trainCount += 1
             if !node.hasActions(){
                 let actionDuration = 0.3
                 let offset = targetPosition - node.position
@@ -315,6 +318,8 @@ class GameScene: SKScene {
                 node.run(moveAction)
             }
             targetPosition = node.position
+            
+            print(trainCount)
         }
     }
     override func update(_ currentTime: TimeInterval) {
