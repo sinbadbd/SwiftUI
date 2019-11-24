@@ -64,8 +64,8 @@ class GameplayScene: SKScene {
             ground.physicsBody?.affectedByGravity = false
             ground.physicsBody?.isDynamic = false
             ground.physicsBody?.categoryBitMask = ColliderType.Ground
-            ground.physicsBody?.collisionBitMask = ColliderType.Bird
-            ground.physicsBody?.contactTestBitMask = ColliderType.Bird
+//            ground.physicsBody?.collisionBitMask = ColliderType.Bird
+//            ground.physicsBody?.contactTestBitMask = ColliderType.Bird
             addChild(ground)
         }
     }
