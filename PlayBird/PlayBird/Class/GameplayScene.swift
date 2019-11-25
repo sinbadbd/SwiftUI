@@ -34,6 +34,7 @@ class GameplayScene: SKScene {
         createGround()
         createBird()
         createPipe()
+        spwanObstacles()
     }
     
     
@@ -116,10 +117,29 @@ class GameplayScene: SKScene {
  
         
         pipeHolder.zPosition = 5
-        pipeHolder.position = CGPoint(x: 0, y: 0)
+//        pipeHolder.position = CGPoint(x: 300, y: 0)
+        pipeHolder.position.x = self.frame.width + 100
+        
         pipeHolder.addChild(pipeUP)
         pipeHolder.addChild(pipeDown)
         
         addChild(pipeHolder)
+        
+        let destination = self.frame.width * 2
+        let move = SKAction.moveTo(x: -destination, duration: 10)
+        let remove = SKAction.removeFromParent()
+        
+        pipeHolder.run(SKAction.sequence([move, remove]), withKey: "Move")
+    }
+    
+    
+    func spwanObstacles(){
+        let spawn = SKAction.run {
+            self.createPipe()
+        }
+        let deley = SKAction.wait(forDuration: 2)
+        let sequence = SKAction.sequence([spawn, deley])
+        
+        self.run(SKAction.repeatForever(sequence), withKey: "Spawn")
     }
 }
