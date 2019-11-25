@@ -13,6 +13,8 @@ import SpriteKit
 class GameplayScene: SKScene {
     
     var bird = Bird()
+    var pipeHolder = SKNode()
+    
     
     override func didMove(to view: SKView) {
         initialize()
@@ -31,6 +33,7 @@ class GameplayScene: SKScene {
         createBackground()
         createGround()
         createBird()
+        createPipe()
     }
     
     
@@ -82,8 +85,41 @@ class GameplayScene: SKScene {
             if node.position.x < -(self.frame.width) {
                 node.position.x += self.frame.width * 3
             }
-            
         }
+    }
+    
+    
+    func createPipe(){
+        pipeHolder = SKNode()
+        pipeHolder.name = "Holder"
         
+        
+        let pipeUP = SKSpriteNode(imageNamed: "Pipe 1")
+        let pipeDown = SKSpriteNode(imageNamed: "Pipe 1")
+        
+        pipeUP.name = "Pipe"
+        pipeUP.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        pipeUP.position = CGPoint(x: 0, y: 500)
+        pipeUP.zRotation = CGFloat(3.14)
+        pipeUP.physicsBody = SKPhysicsBody(rectangleOf: pipeUP.size)
+        pipeUP.physicsBody?.collisionBitMask = ColliderType.Pipes
+        pipeUP.physicsBody?.affectedByGravity = false
+        pipeUP.physicsBody?.isDynamic = false
+ 
+        pipeDown.name = "Pipe"
+        pipeDown.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        pipeDown.position = CGPoint(x: 0, y: -500)
+        pipeDown.physicsBody = SKPhysicsBody(rectangleOf: pipeDown.size)
+        pipeDown.physicsBody?.collisionBitMask = ColliderType.Pipes
+        pipeDown.physicsBody?.affectedByGravity = false
+        pipeDown.physicsBody?.isDynamic = false
+ 
+        
+        pipeHolder.zPosition = 5
+        pipeHolder.position = CGPoint(x: 0, y: 0)
+        pipeHolder.addChild(pipeUP)
+        pipeHolder.addChild(pipeDown)
+        
+        addChild(pipeHolder)
     }
 }
