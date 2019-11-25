@@ -22,6 +22,7 @@
 		1D2521D0238A855C000DC595 /* GameplayScne.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1D2521CF238A855C000DC595 /* GameplayScne.sks */; };
 		1D2521D3238A8638000DC595 /* GameplayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2521D2238A8638000DC595 /* GameplayScene.swift */; };
 		1D2521D6238A9724000DC595 /* Bird.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2521D5238A9724000DC595 /* Bird.swift */; };
+		1D2521D9238B9ED3000DC595 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2521D8238B9ED3000DC595 /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		1D2521CF238A855C000DC595 /* GameplayScne.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameplayScne.sks; sourceTree = "<group>"; };
 		1D2521D2238A8638000DC595 /* GameplayScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayScene.swift; sourceTree = "<group>"; };
 		1D2521D5238A9724000DC595 /* Bird.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bird.swift; sourceTree = "<group>"; };
+		1D2521D8238B9ED3000DC595 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 		1D2521A8238A831B000DC595 /* PlayBird */ = {
 			isa = PBXGroup;
 			children = (
+				1D2521D7238B9EB9000DC595 /* Utils */,
 				1D2521D1238A8615000DC595 /* Class */,
 				1D2521CE238A8538000DC595 /* Scenes */,
 				1D2521CD238A83C6000DC595 /* Assets */,
@@ -124,6 +127,14 @@
 				1D2521D5238A9724000DC595 /* Bird.swift */,
 			);
 			path = "Bird Class";
+			sourceTree = "<group>";
+		};
+		1D2521D7238B9EB9000DC595 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1D2521D8238B9ED3000DC595 /* Utils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D2521D9238B9ED3000DC595 /* Utils.swift in Sources */,
 				1D2521B2238A831B000DC595 /* GameViewController.swift in Sources */,
 				1D2521D3238A8638000DC595 /* GameplayScene.swift in Sources */,
 				1D2521D6238A9724000DC595 /* Bird.swift in Sources */,
