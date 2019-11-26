@@ -10,12 +10,12 @@ import SpriteKit
 
 
 
-class GameplayScene: SKScene {
+class GameplayScene: SKScene, SKPhysicsContactDelegate {
     
     var bird = Bird()
     var pipeHolder = SKNode()
     
-    var score = 0
+    var score = -1
     var scroreLabel = SKLabelNode()
     
     override func didMove(to view: SKView) {
@@ -23,16 +23,37 @@ class GameplayScene: SKScene {
     }
     override func update(_ currentTime: TimeInterval) {
         moveBG()
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        scroreIncrement()
-        
         bird.flap()
     }
     
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        var firstBody = SKPhysicsBody()
+        var secondBody = SKPhysicsBody()
+        
+        if contact.bodyA.node?.name == "Bird" {
+            firstBody = contact.bodyA
+            secondBody = contact.bodyB
+        } else{
+            firstBody = contact.bodyB
+            secondBody = contact.bodyA
+        }
+        
+        if firstBody.node?.name == "Bird" && secondBody.node?.name == "Score" {
+            scroreIncrement()
+        } else if firstBody.node?.name == "Bird" && secondBody.node?.name == "Pipe" {
+            print("Pipe")
+        } else if firstBody.node?.name == "Bird" && secondBody.node?.name == "Ground" {
+            print("ground")
+        }
+        
+    }
+    
     func initialize(){
+        physicsWorld.contactDelegate = self
         createBackground()
         createGround()
         createBird()
@@ -117,7 +138,7 @@ class GameplayScene: SKScene {
         
         pipeUP.name = "Pipe"
         pipeUP.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        pipeUP.position = CGPoint(x: 0, y: 630)
+        pipeUP.position = CGPoint(x: 0, y: 600)
         pipeUP.zRotation = CGFloat(3.14)
         pipeUP.yScale = 1.5
         pipeUP.physicsBody = SKPhysicsBody(rectangleOf: pipeUP.size)
@@ -172,7 +193,9 @@ class GameplayScene: SKScene {
         addChild(scroreLabel)
     }
     func scroreIncrement (){
-        score += 1
+//        if score >= 0 {
+            score += 1
+//        }
         scroreLabel.text = String(score)
     }
 }
