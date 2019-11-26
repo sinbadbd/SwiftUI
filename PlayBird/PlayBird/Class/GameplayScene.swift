@@ -16,17 +16,33 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
     var pipeHolder = SKNode()
     
     var score = -1
+    
+    var gameStart = false
+    var isAlive = false
+    
     var scroreLabel = SKLabelNode()
     
     override func didMove(to view: SKView) {
         initialize()
     }
     override func update(_ currentTime: TimeInterval) {
-        moveBG()
+        if isAlive {
+            moveBG()
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        bird.flap()
+        if gameStart == false {
+            isAlive = true
+            gameStart = true
+            spwanObstacles()
+            bird.physicsBody?.affectedByGravity = true
+            bird.flap()
+        }
+        if isAlive{
+            bird.flap()
+        }
+        
     }
     
     
@@ -46,8 +62,14 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
             scroreIncrement()
         } else if firstBody.node?.name == "Bird" && secondBody.node?.name == "Pipe" {
             print("Pipe")
+            if isAlive {
+                birdDied()
+            }
         } else if firstBody.node?.name == "Bird" && secondBody.node?.name == "Ground" {
             print("ground")
+            if isAlive {
+                birdDied()
+            }
         }
         
     }
@@ -58,7 +80,6 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
         createGround()
         createBird()
         createPipe()
-        spwanObstacles()
         createScore()
         scroreIncrement()
     }
@@ -134,7 +155,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
         scoreNode.physicsBody?.categoryBitMask = ColliderType.Score
         scoreNode.physicsBody?.collisionBitMask = 0
         scoreNode.physicsBody?.isDynamic = false
- 
+        
         
         pipeUP.name = "Pipe"
         pipeUP.anchorPoint = CGPoint(x: 0.5, y: 0.5)
@@ -193,9 +214,44 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
         addChild(scroreLabel)
     }
     func scroreIncrement (){
-//        if score >= 0 {
-            score += 1
-//        }
+        //        if score >= 0 {
+        score += 1
+        //        }
         scroreLabel.text = String(score)
+    }
+    
+    func birdDied(){
+//        for child in children {
+//
+//            if child.name == "Holder" {
+//                self.removeAction(forKey: "Spawn")
+//                child.removeAction(forKey: "Move")
+//            }
+//        }
+        
+        
+        isAlive = false
+        
+        let retry = SKSpriteNode(imageNamed: "Retry")
+        let quit = SKSpriteNode(imageNamed: "Quit")
+        
+        retry.name = "Retry"
+        retry.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        retry.position = CGPoint(x: -150, y: -150)
+        retry.zPosition = 7
+        retry.setScale(0)
+        addChild(retry)
+        
+        quit.name = "Retry"
+        quit.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        quit.position = CGPoint(x: 150, y: -150)
+        quit.zPosition = 7
+        quit.setScale(0)
+        addChild(quit)
+        
+        
+        let scaleUp = SKAction.scale(to: 1, duration: 0.5)
+        retry.run(scaleUp)
+        quit.run(scaleUp)
     }
 }
