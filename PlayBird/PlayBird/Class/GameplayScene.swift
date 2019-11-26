@@ -15,6 +15,8 @@ class GameplayScene: SKScene {
     var bird = Bird()
     var pipeHolder = SKNode()
     
+    var score = 0
+    var scroreLabel = SKLabelNode()
     
     override func didMove(to view: SKView) {
         initialize()
@@ -25,6 +27,7 @@ class GameplayScene: SKScene {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        scroreIncrement()
         
         bird.flap()
     }
@@ -35,6 +38,8 @@ class GameplayScene: SKScene {
         createBird()
         createPipe()
         spwanObstacles()
+        createScore()
+        scroreIncrement()
     }
     
     
@@ -68,8 +73,8 @@ class GameplayScene: SKScene {
             ground.physicsBody?.affectedByGravity = false
             ground.physicsBody?.isDynamic = false
             ground.physicsBody?.categoryBitMask = ColliderType.Ground
-//            ground.physicsBody?.collisionBitMask = ColliderType.Bird
-//            ground.physicsBody?.contactTestBitMask = ColliderType.Bird
+            //            ground.physicsBody?.collisionBitMask = ColliderType.Bird
+            //            ground.physicsBody?.contactTestBitMask = ColliderType.Bird
             addChild(ground)
         }
     }
@@ -94,36 +99,50 @@ class GameplayScene: SKScene {
         pipeHolder = SKNode()
         pipeHolder.name = "Holder"
         
-        
         let pipeUP = SKSpriteNode(imageNamed: "Pipe 1")
         let pipeDown = SKSpriteNode(imageNamed: "Pipe 1")
         
+        let scoreNode = SKSpriteNode()
+        scoreNode.name = "Score"
+        scoreNode.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        scoreNode.position = CGPoint(x: 0, y: 0)
+        scoreNode.size = CGSize(width: 5, height: 300)
+        scoreNode.color = UIColor.red
+        scoreNode.physicsBody = SKPhysicsBody(rectangleOf: scoreNode.size)
+        scoreNode.physicsBody?.affectedByGravity = false
+        scoreNode.physicsBody?.categoryBitMask = ColliderType.Score
+        scoreNode.physicsBody?.collisionBitMask = 0
+        scoreNode.physicsBody?.isDynamic = false
+ 
+        
         pipeUP.name = "Pipe"
         pipeUP.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        pipeUP.position = CGPoint(x: 0, y: 600)
+        pipeUP.position = CGPoint(x: 0, y: 630)
         pipeUP.zRotation = CGFloat(3.14)
         pipeUP.yScale = 1.5
         pipeUP.physicsBody = SKPhysicsBody(rectangleOf: pipeUP.size)
         pipeUP.physicsBody?.collisionBitMask = ColliderType.Pipes
         pipeUP.physicsBody?.affectedByGravity = false
         pipeUP.physicsBody?.isDynamic = false
- 
+        
         pipeDown.name = "Pipe"
         pipeDown.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        pipeDown.position = CGPoint(x: 0, y: -600)
+        pipeDown.position = CGPoint(x: 0, y: -630)
         pipeDown.yScale = 1.5
         pipeDown.physicsBody = SKPhysicsBody(rectangleOf: pipeDown.size)
         pipeDown.physicsBody?.collisionBitMask = ColliderType.Pipes
         pipeDown.physicsBody?.affectedByGravity = false
         pipeDown.physicsBody?.isDynamic = false
- 
+        
         
         pipeHolder.zPosition = 5
-//        pipeHolder.position = CGPoint(x: 300, y: 0)
+        //        pipeHolder.position = CGPoint(x: 300, y: 0)
         pipeHolder.position.x = self.frame.width + 100
         pipeHolder.position.y = CGFloat.randomBetween(min: -300, max: 300)
+        
         pipeHolder.addChild(pipeUP)
         pipeHolder.addChild(pipeDown)
+        pipeHolder.addChild(scoreNode)
         
         addChild(pipeHolder)
         
@@ -143,5 +162,17 @@ class GameplayScene: SKScene {
         let sequence = SKAction.sequence([spawn, deley])
         
         self.run(SKAction.repeatForever(sequence), withKey: "Spawn")
+    }
+    
+    func createScore(){
+        scroreLabel.text = "0"
+        scroreLabel.zPosition = 6
+        scroreLabel.fontSize = 120
+        scroreLabel.position = CGPoint(x: 0, y: 450)
+        addChild(scroreLabel)
+    }
+    func scroreIncrement (){
+        score += 1
+        scroreLabel.text = String(score)
     }
 }
