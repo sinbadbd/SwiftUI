@@ -22,6 +22,8 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
     
     var scroreLabel = SKLabelNode()
     
+     var press = SKSpriteNode()
+    
     override func didMove(to view: SKView) {
         initialize()
     }
@@ -36,6 +38,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
             isAlive = true
             gameStart = true
             spwanObstacles()
+            press.removeFromParent()
             bird.physicsBody?.affectedByGravity = true
             bird.flap()
         }
@@ -43,6 +46,21 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
             bird.flap()
         }
         
+        
+        for touch in touches {
+            let location = touch.location(in: self)
+            print(location)
+            
+            if atPoint(location).name == "Retry" {
+                self.removeAllActions()
+                self.removeAllChildren()
+                initialize()
+            }
+            
+            if atPoint(location).name == "Quit" {
+                
+            }
+        }
     }
     
     
@@ -75,13 +93,28 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func initialize(){
+        
+        gameStart = false
+        isAlive = false
+        score = -1
+        
         physicsWorld.contactDelegate = self
         createBackground()
         createGround()
+        createInitializer()
         createBird()
         createPipe()
         createScore()
         scroreIncrement()
+    }
+    
+    func createInitializer(){
+        press = SKSpriteNode(imageNamed: "Press")
+        press.name = "Press"
+        press.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        press.position = CGPoint(x: 0, y: 0)
+        press.zPosition = 10
+        addChild(press)
     }
     
     
@@ -221,13 +254,12 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func birdDied(){
-//        for child in children {
-//
-//            if child.name == "Holder" {
-//                self.removeAction(forKey: "Spawn")
-//                child.removeAction(forKey: "Move")
-//            }
-//        }
+        self.removeAction(forKey: "Spawn")
+        for child in children {
+            if child.name == "Holder" {
+                child.removeAction(forKey: "Move")
+            }
+        }
         
         
         isAlive = false
