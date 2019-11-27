@@ -22,7 +22,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
     
     var scroreLabel = SKLabelNode()
     
-     var press = SKSpriteNode()
+    var press = SKSpriteNode()
     
     override func didMove(to view: SKView) {
         initialize()
@@ -58,7 +58,11 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
             }
             
             if atPoint(location).name == "Quit" {
-                
+//                if atPoint(location).name == "Play" {
+                    let mainMenu =  MainMenuScene(fileNamed: "MainMenuScene")
+                    mainMenu?.scaleMode = .aspectFill
+                    self.view?.presentScene(mainMenu!, transition: SKTransition.doorway(withDuration: 1))
+//                }
             }
         }
     }
@@ -274,7 +278,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
         retry.setScale(0)
         addChild(retry)
         
-        quit.name = "Retry"
+        quit.name = "Quit"
         quit.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         quit.position = CGPoint(x: 150, y: -150)
         quit.zPosition = 7
