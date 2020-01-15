@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         view.backgroundColor = .white
         
-        setupFreamShadow()
+        //setupFreamShadow()
         setupView()
     }
     func setupFreamShadow(){
@@ -25,10 +25,10 @@ class ViewController: UIViewController {
         viewBG.dropShadow(color: .gray, opacity: 0.5, offSet: CGSize(width: 1, height: 1), shadowRadius: 5, scale: true, cornerRadius: 2)
         view.addSubview(viewBG)
     }
+    
     // Creates your mainView
     var mainView: UIView = {
         let view = UIView()
-//        view.backgroundColor = .white
         view.layer.shadowRadius = 3
         view.layer.shadowOffset = CGSize(width: 0.5, height: 0.5)
         view.layer.shadowOpacity = 0.5
@@ -53,12 +53,12 @@ class ViewController: UIViewController {
         
         
         view.addSubview(mainView)
-//        mainView.addSubview(contentsLayer)
+       mainView.addSubview(contentsLayer)
         
         mainView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 50, left: 40, bottom: 0, right: 40), size: CGSize(width: 100, height: 100))
         
         
-//        contentsLayer.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 50, left: 40, bottom: 0, right: 40), size: CGSize(width: 100, height: 100))
+       contentsLayer.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 50, left: 40, bottom: 0, right: 40), size: CGSize(width: 100, height: 100))
         
     }
     
