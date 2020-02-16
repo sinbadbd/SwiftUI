@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     let checkedImage = UIImage(named: "check_box")! as UIImage
     let uncheckedImage = UIImage(named: "uncheck_box")! as UIImage
     // declare bool
-    var unchecked = false
+    var isChecked = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,15 +27,15 @@ class ViewController: UIViewController {
    
     @objc func handleCheckbox(_ sender: UIButton){
         //sender.setImage(uncheckedImage, for: .normal)
-        if unchecked == false{
+        if isChecked == false {
             sender.setImage(checkedImage, for: .normal)
-            unchecked = true
-            print(unchecked,"A")
+            isChecked = true
+            print(isChecked,"A")
 
         }else {
             sender.setImage(uncheckedImage, for: .normal)
-            unchecked = false
-            print(unchecked,"B")
+            isChecked = false
+            print(isChecked,"B")
         }
         
 //        sender.isSelected = !sender.isSelected

@@ -17,21 +17,19 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5be-nX-kip">
                                 <rect key="frame" x="184" y="310" width="46" height="30"/>
-                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="5si-k7-mdv"/>
-                                    <constraint firstAttribute="width" constant="46" id="jL2-Lo-3sq"/>
-                                </constraints>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button" image="uncheck_box">
                                     <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="5be-nX-kip" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="266" id="bR9-ye-ez5"/>
-                            <constraint firstItem="5be-nX-kip" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fiF-hS-i9e"/>
+                            <constraint firstItem="5be-nX-kip" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="184" id="LDf-jw-CbA"/>
+                            <constraint firstItem="5be-nX-kip" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="266" id="PPw-DS-5u7"/>
+                            <constraint firstItem="5be-nX-kip" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="R1N-YX-PF7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5be-nX-kip" secondAttribute="bottom" constant="522" id="nVU-Lq-yFo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
