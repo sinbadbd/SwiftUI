@@ -18,9 +18,29 @@ class PreviewVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        showImage.image = self.image
+        
+        
         // Do any additional setup after loading the view.
+        
+//        showImage.addGestureRecognizer(UIGestureRecognizer(target: self, action: #selector(tapCameraVC)))
+        showImage.isUserInteractionEnabled = true
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapCameraVC))
+                   tapGestureRecognizer.numberOfTapsRequired = 1
+                    showImage.addGestureRecognizer(tapGestureRecognizer)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        showImage.image = frontImage
 
+    }
+
+    @objc func tapCameraVC(){
+        print(".....")
+        
+        let vc = CustomCamera()
+        navigationController?.pushViewController(vc, animated: true)
+        
+    }
 }
