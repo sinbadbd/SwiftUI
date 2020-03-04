@@ -65,7 +65,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p0Z-I8-eLG">
-                                <rect key="frame" x="100" y="200" width="214" height="362"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ohx-PX-V2p">
@@ -91,13 +91,13 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="p0Z-I8-eLG" firstAttribute="bottom" secondItem="lCI-zF-c7P" secondAttribute="bottom" constant="-300" id="7a5-mI-cF9"/>
+                            <constraint firstItem="p0Z-I8-eLG" firstAttribute="bottom" secondItem="lCI-zF-c7P" secondAttribute="bottom" id="7a5-mI-cF9"/>
                             <constraint firstItem="Ohx-PX-V2p" firstAttribute="top" secondItem="M9I-el-peW" secondAttribute="top" id="Du3-Ai-12H"/>
-                            <constraint firstItem="p0Z-I8-eLG" firstAttribute="top" secondItem="M9I-el-peW" secondAttribute="top" constant="200" id="GH9-Es-fCm"/>
-                            <constraint firstItem="p0Z-I8-eLG" firstAttribute="leading" secondItem="lCI-zF-c7P" secondAttribute="leading" constant="100" id="RVo-Am-0aH"/>
+                            <constraint firstItem="p0Z-I8-eLG" firstAttribute="top" secondItem="M9I-el-peW" secondAttribute="top" id="GH9-Es-fCm"/>
+                            <constraint firstItem="p0Z-I8-eLG" firstAttribute="leading" secondItem="lCI-zF-c7P" secondAttribute="leading" id="RVo-Am-0aH"/>
                             <constraint firstItem="Ohx-PX-V2p" firstAttribute="trailing" secondItem="lCI-zF-c7P" secondAttribute="trailing" id="RlU-Pj-8Ls"/>
                             <constraint firstItem="Ohx-PX-V2p" firstAttribute="leading" secondItem="lCI-zF-c7P" secondAttribute="leading" id="Veg-Qo-me5"/>
-                            <constraint firstItem="p0Z-I8-eLG" firstAttribute="trailing" secondItem="lCI-zF-c7P" secondAttribute="trailing" constant="-100" id="zEU-DR-gk4"/>
+                            <constraint firstItem="p0Z-I8-eLG" firstAttribute="trailing" secondItem="lCI-zF-c7P" secondAttribute="trailing" id="zEU-DR-gk4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lCI-zF-c7P"/>
                     </view>
